@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vintage Beats | Donde el pasado tiene el mejor beat</title>
+    
+    <link rel="stylesheet" href="styles.css"> 
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="page-wrap"> 
+
+        <header class="main-header">
+            <div class="banner-top">
+                <img src="img/banner.png" alt="Banner de la tienda" class="header-banner glowing-banner">
+            </div>
+        </header>
+
+        <nav class="main-nav">
+            <div class="container"> 
+                
+                <div class="brand-area">
+                    <a href="/" class="logo-link">
+                        <img src="img/logo1.png" alt="Vintage Beats Logo" class="header-logo-circle">
+                        <span class="brand-name">Vintage Beats</span>
+                    </a>
+                </div>
+                
+                <ul class="nav-links">
+                    <li><a href="#inicio">INICIO</a></li>
+                    <li><a href="#productos">PRODUCTOS</a></li>
+                    <li><a href="categoria.php">CATEGORIAS</a></li>
+                    <li><a href="#galeria">GALERÍA</a></li>
+                    <li><a href="/sentibot">SENTIBOT</a></li> 
+                    <li><a href="#novedades">NOVEDADES</a></li>
+                    <li><a href="#contacto">CONTACTO</a></li>
+                </ul>
+
+                <div class="icon-group" id="auth-icons">
+                    <a href="auth.html" id="login-link" class="user-icon" title="Iniciar Sesión">👤</a>
+                    <a href="#" id="logout-link" class="user-icon" title="Cerrar Sesión" style="display:none;">🔒</a>
+                    
+                   <a href="carrito.html"><i class="fas fa-shopping-cart cart-icon"></i></a>
+                </div>
+
+            </div>
+        </nav>
+
+        <main>
+            
+            <section class="hero-full-screen" id="inicio">
+                <video autoplay muted loop id="hero-video">
+        <source src="img/intro3.mp4" type="video/mp4">
+        Tu navegador no soporta el tag de video.
+    </video>
+                <div class="container hero-content">
+                    
+                    <h1 class="neon-glow" style="--glow-color: var(--primary-color);">
+                        BIENVENIDO A VINTAGE BEATS
+                    </h1>
+                    
+                    <p class="hero-slogan">
+                        En Vintage Beats, celebramos la magia de la música en su forma más pura: vinilos y CD's. Explora nuestra colección de clásicos y rarezas que te harán viajar en el tiempo.
+                    </p>
+                    
+                </div>
+            </section>
+
+           <section class="section-padding" id="productos">
+    <div class="container">
+        
+        <h2 class="neon-glow" style="--glow-color: var(--primary-color); text-align: center; margin-bottom: 30px;">
+            Nuestros Productos 
+        </h2>
+        
+        <div class="auto-carousel-wrapper">
+            
+            <div class="carousel-inner">
+                
+                <div class="carousel-slide">
+                    <h3 class="product-section-title">Vinilos</h3>
+                    <div class="product-grid">
+                        
+                        <div class="product-card">
+                            <img 
+                                src="generos/img/queen_v.png" 
+                                alt="Vinilo: Queen" 
+                                class="product-card-img audio-trigger" 
+                                data-audio-id="queen-audio"
+                            >
+                            <div class="product-info-block">
+                                <h4 class="album-name">A night at the opera (1975)</h4>
+                                <p class="artist-name">Queen</p>
+                                <p class="product-card-price">$950.00 MXN</p>
+                            </div>
+                            <button 
+                                class="btn btn-primary btn-small btn-add-to-cart"
+                                onclick="addToCart(
+                                    'v001', 
+                                    'A night at the opera', 
+                                    950.00, 
+                                    'generos/queen_v.png', 
+                                    'Queen', 
+                                    'Vinilo'
+                                )">
+                                Añadir al Carrito
+                            </button>
+                            <audio id="queen-audio" src="generos/music/queen.mp3" style="display: none;"></audio>
+                        </div>
+                        
+                        <div class="product-card">
+                            <img 
+                                src="generos/img/selena_v.png" 
+                                alt="SELENA" 
+                                class="product-card-img audio-trigger" 
+                                data-audio-id="selena-audio"
+                            >
+                            <div class="product-info-block">
+                                <h4 class="album-name">Amor Prohibido (1994)</h4>
+                                <p class="artist-name">Selena Quintanilla</p>
+                                <p class="product-card-price">$950.00 MXN</p>
+                            </div>
+                            <button 
+                                class="btn btn-primary btn-small btn-add-to-cart"
+                                onclick="addToCart(
+                                    'v002', 
+                                    'Amor Prohibido', 
+                                    950.00, 
+                                    'generos/selena_v.png', 
+                                    'Selena Quintanilla', 
+                                    'Vinilo'
+                                )">
+                                Añadir al Carrito
+                            </button>
+                            <audio id="selena-audio" src="generos/music/selena.mp3" style="display: none;"></audio>
+                        </div>
+                        
+                        <div class="product-card">
+                            <img 
+                                src="generos/img/bunny_v.png" 
+                                alt="Bad Bunny" 
+                                class="product-card-img audio-trigger" 
+                                data-audio-id="badbunny-audio"
+                            >
+                            <div class="product-info-block">
+                                <h4 class="album-name">YHLQMDLG (2020)</h4>
+                                <p class="artist-name">Bad Bunny</p>
+                                <p class="product-card-price">$950.00 MXN</p>
+                            </div>
+                            <button 
+                                class="btn btn-primary btn-small btn-add-to-cart"
+                                onclick="addToCart(
+                                    'v003', 
+                                    'YHLQMDLG', 
+                                    950.00, 
+                                    'generos/bunny_v.png', 
+                                    'Bad Bunny', 
+                                    'Vinilo'
+                                )">
+                                Añadir al Carrito
+                            </button>
+                            <audio id="badbunny-audio" src="generos/music/badbunny.mp3" style="display: none;"></audio>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="carousel-slide">
+                    <h3 class="product-section-title">Cd's</h3>
+                    <div class="product-grid">
+                        
+                        <div class="product-card">
+                            <img 
+                                src="generos/img/beatles_cd.png" 
+                                alt="cd:beatles" 
+                                class="product-card-img audio-trigger" 
+                                data-audio-id="beatles-audio"
+                            >
+                            <div class="product-info-block">
+                                <h4 class="album-name">Abbey Road</h4>
+                                <p class="artist-name">The Beatles</p>
+                                <p class="product-card-price">$450.00 MXN</p>
+                            </div>
+                            <button 
+                                class="btn btn-primary btn-small btn-add-to-cart"
+                                onclick="addToCart(
+                                    'cd001', 
+                                    'Abbey Road', 
+                                    450.00, 
+                                    'generos/beatles_cd.png', 
+                                    'The Beatles', 
+                                    'CD'
+                                )">
+                                Añadir al Carrito
+                            </button>
+                            <audio id="beatles-audio" src="generos/music/beatles.mp3" style="display: none;"></audio>
+                        </div>
+                        
+                        <div class="product-card">
+                            <img 
+                                src="generos/img/juan_cd.png" 
+                                alt="juan_cd" 
+                                class="product-card-img audio-trigger" 
+                                data-audio-id="juan-audio"
+                            >
+                            <div class="product-info-block">
+                                <h4 class="album-name">Romance (1991)</h4>
+                                <p class="artist-name">Juan Gabriel</p>
+                                <p class="product-card-price">$450.00 MXN</p>
+                            </div>
+                            <button 
+                                class="btn btn-primary btn-small btn-add-to-cart"
+                                onclick="addToCart(
+                                    'cd002', 
+                                    'Romance', 
+                                    450.00, 
+                                    'generos/juan_cd.png', 
+                                    'Juan Gabriel', 
+                                    'CD'
+                                )">
+                                Añadir al Carrito
+                            </button>
+                            <audio id="juan-audio" src="generos/music/juangabriel.mp3" style="display: none;"></audio>
+                        </div>
+                        
+                        <div class="product-card">
+                            <img 
+                                src="generos/img/rosalia_cd.png" 
+                                alt="Rosalia" 
+                                class="product-card-img audio-trigger" 
+                                data-audio-id="rosalia-audio"
+                            >
+                            <div class="product-info-block">
+                                <h4 class="album-name">El Mal Querer (2018)</h4>
+                                <p class="artist-name">Rosalia</p>
+                                <p class="product-card-price">$450.00 MXN</p>
+                            </div>
+                            <button 
+                                class="btn btn-primary btn-small btn-add-to-cart"
+                                onclick="addToCart(
+                                    'cd003', 
+                                    'El Mal Querer', 
+                                    450.00, 
+                                    'generos/rosalia_cd.png', 
+                                    'Rosalia', 
+                                    'CD'
+                                )">
+                                Añadir al Carrito
+                            </button>
+                            <audio id="rosalia-audio" src="generos/music/rosalia.mp3" style="display: none;"></audio>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="carousel-slide">
+                    <h3 class="product-section-title">Reproductores</h3>
+                    <div class="product-grid">
+                        
+                        <div class="product-card">
+                            <img src="generos/img/re.png" alt="Reproductor de vinilos moderno" class="product-card-img">
+                            <div class="product-info-block">
+                                <h4 class="album-name">Reproductor Moderno</h4>
+                                <p class="artist-name">Marca: AudioTech</p>
+                                <p class="product-card-price">$1,500.00 MXN</p>
+                            </div>
+                            <button 
+                                class="btn btn-primary btn-small btn-add-to-cart"
+                                onclick="addToCart(
+                                    'r001', 
+                                    'Reproductor Moderno', 
+                                    1500.00, 
+                                    'img/r1.png', 
+                                    'AudioTech', 
+                                    'Reproductor'
+                                )">
+                                Añadir al Carrito
+                            </button>
+                        </div>
+                        
+                        <div class="product-card">
+                            <img src="generos/img/r2.png" alt="Reproductor de vinilos compacto" class="product-card-img">
+                            <div class="product-info-block">
+                                <h4 class="album-name">Reproductor Compacto</h4>
+                                <p class="artist-name">Marca: SoundFlow</p>
+                                <p class="product-card-price">$950.00 MXN</p>
+                            </div>
+                            <button 
+                                class="btn btn-primary btn-small btn-add-to-cart"
+                                onclick="addToCart(
+                                    'r002', 
+                                    'Reproductor Compacto', 
+                                    950.00, 
+                                    'img/r2.png', 
+                                    'SoundFlow', 
+                                    'Reproductor'
+                                )">
+                                Añadir al Carrito
+                            </button>
+                        </div>
+                        
+                        <div class="product-card">
+                            <img src="generos/img/r3.png" alt="Reproductor de vinilos vintage" class="product-card-img">
+                            <div class="product-info-block">
+                                <h4 class="album-name">Reproductor Vintage</h4>
+                                <p class="artist-name">Marca: RetroWave</p>
+                                <p class="product-card-price">$1,800.00 MXN</p>
+                            </div>
+                            <button 
+                                class="btn btn-primary btn-small btn-add-to-cart"
+                                onclick="addToCart(
+                                    'r003', 
+                                    'Reproductor Vintage', 
+                                    1800.00, 
+                                    'img/r3.png', 
+                                    'RetroWave', 
+                                    'Reproductor'
+                                )">
+                                Añadir al Carrito
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+            </div> 
+        </div> 
+    </div> 
+</section>
+
+            <section class="section-padding" id="galeria">
+                <div class="container">
+                    
+                    <h2 class="neon-glow" style="--glow-color: var(--primary-color); text-align: center; margin-bottom: 50px;">
+                        Nuestra Galería
+                    </h2>
+
+                    <div class="gallery-grid">
+                        
+                        <div class="gallery-item large">
+                            <img src="img/g1.png" alt="Vinilos en estante" class="gallery-img">
+                            <div class="overlay">
+                                <p class="overlay-text">Colección de Clásicos</p>
+                            </div>
+                        </div>
+
+                        <div class="gallery-item">
+                            <img src="img/g2.png" alt="Detalle de tornamesa" class="gallery-img">
+                            <div class="overlay">
+                                <p class="overlay-text">El Tacto del Vinilo</p>
+                            </div>
+                        </div>
+
+                        <div class="gallery-item video-item">
+                            <video loop playsinline class="gallery-video">
+                                <source src="img/g6.mp4" type="video/mp4">
+                                Tu navegador no soporta la etiqueta de video.
+                            </video>
+                            <div class="overlay video-overlay">
+                                <p class="overlay-text">Nuestro Beat</p>
+                            </div>
+                        </div>
+
+                        <div class="gallery-item">
+                            <img src="img/g3.png" alt="CDs en stack" class="gallery-img">
+                            <div class="overlay">
+                                <p class="overlay-text">El Resurgir del CD</p>
+                            </div>
+                        </div>
+
+                        <div class="gallery-item">
+                            <img src="img/g4.png" alt="Arte de portada de álbum" class="gallery-img">
+                            <div class="overlay">
+                                <p class="overlay-text">Arte y Música</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-padding" id="novedades">
+                <div class="container">
+                    
+                    <h2 class="neon-glow" style="--glow-color: var(--primary-color); text-align: center; margin-bottom: 30px;">
+                        Novedades en Vintage Beats
+                    </h2>
+                    
+                    <div class="flyer-carousel-wrapper">
+                        
+                        <div class="flyer-carousel-inner">
+                            
+                            <div class="flyer-slide">
+                                <img src="img/p1.png" alt="Flyer 1" class="flyer-img">
+                            </div>
+                            
+                            <div class="flyer-slide">
+                                <img src="img/p2.png" alt="Flyer 2" class="flyer-img">
+                            </div>
+                            
+                            <div class="flyer-slide">
+                                <img src="img/p3.png" alt="Flyer 3" class="flyer-img">
+                            </div>
+                            
+                            <div class="flyer-slide">
+                                <img src="img/p4.png" alt="Flyer 4" class="flyer-img">
+                            </div>
+
+                            <div class="flyer-slide">
+                                <img src="img/p5.png" alt="Flyer 5" class="flyer-img">
+                            </div>
+
+                            <div class="flyer-slide">
+                                <img src="img/p1.png" alt="Flyer 6 (Placeholder)" class="flyer-img"> 
+                            </div>
+                            
+                            <div class="flyer-slide flyer-clone">
+                                <img src="img/p2.png" alt="Flyer 1 Clonado" class="flyer-img">
+                            </div>
+                            
+                            <div class="flyer-slide flyer-clone">
+                                <img src="img/p3.png" alt="Flyer 2 Clonado" class="flyer-img">
+                            </div>
+
+                            <div class="flyer-slide flyer-clone">
+                                <img src="img/p4.png" alt="Flyer 3 Clonado" class="flyer-img">
+                            </div>
+                            
+                            <div class="flyer-slide flyer-clone">
+                                <img src="img/p5.png" alt="Flyer 4 Clonado" class="flyer-img">
+                            </div>
+                            
+                        </div> 
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="main-footer">
+            <div class="container footer-content"> 
+                
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <p>Estamos aquí para ayudarte con cualquier consulta.</p>
+                    <p>Email: <strong>vbofic@example.com</strong></p> 
+                </div>
+
+                <div class="footer-section">
+                    <h4>Ubicación</h4>
+                    <p>Dirección: Calle Falsa 123, Ciudad de México</p>
+                    <p>Horario: <strong>Lunes a Sábado, 10:00 - 20:00</strong></p>
+                </div>
+
+                <div class="footer-section social-links-section">
+                    <h4>Síguenos</h4>
+                    <div class="social-icons">
+                       <a href="https://www.facebook.com/share/1CzVSKmWR5/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                       <a href="https://x.com/VintageBeats_?t=YVcwY0N8XeeUQeKYeDXBhQ&s=08" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                       <a href="https://www.instagram.com/vintagebts?igsh=MXZwMWFzcHllOTExZA==" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                       <a href="https://www.tiktok.com/@vintage_beatss" target="_blank" aria-label="Tiktok"><i class="fab fa-tiktok"></i></a>
+                       <a href="https://wa.me/5215586974840" target="_blank" aria-label="WhatsApp">
+                           <i class="fab fa-whatsapp"></i>
+                       </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                &copy; 2025 V-Beats. Todos los derechos reservados.
+            </div>
+        </footer>
+        
+    </div> 
+    
+    <div id="lightbox" class="modal" style="display:none;">
+        <span class="close-button lightbox-close">&times;</span>
+        <img id="lightbox-content" class="modal-content" src="">
+    </div>
+
+    <div id="cart-modal" class="modal" style="display:none;">
+        <div class="modal-content large-modal">
+            <span class="close-button cart-close-button">&times;</span>
+            <h2 class="neon-glow" style="--glow-color: var(--primary-color);">Tu Carrito de Compras</h2>
+            
+            <div id="cart-items-container" class="cart-items-list">
+                <p id="empty-cart-message">Tu carrito está vacío.</p>
+            </div>
+            
+            <div class="cart-summary">
+                <p>Total: <span id="cart-total">$0.00 MXN</span></p>
+            </div>
+
+            <div class="cart-actions">
+                <button id="clear-cart-btn" class="btn btn-secondary">Vaciar Carrito</button>
+                <button id="paypal-checkout-btn" class="btn paypal-btn">
+                    <i class="fab fa-paypal"></i> Pagar con PayPal (Simulado)
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="chatbot-wrapper">
+        <button id="chatbot-toggle" class="neon-glow btn-primary floating-icon">
+            <i class="fas fa-comment-dots fa-lg"></i>
+        </button>
+
+        <div id="chatbot-window" style="display:none;">
+            <div id="chat-header">
+                <button id="chat-close-btn" class="close-btn">&times;</button>
+                <h4><span class="neon-glow" style="--glow-color: var(--secondary-color);">RetroBot 9000</span></h4>
+            </div>
+            <div id="chat-body">
+                <p class="bot-message">Hola! Soy Viny. Dime qué estás buscando. Puedes preguntar por **género** (Pop, Rock, Electrónica, etc.) o por **categoría** (CDs, Vinilos, Reproductores, Precios).</p>
+            </div>
+            <div id="chat-input-area">
+                <input type="text" id="user-input" placeholder="Escribe tu pregunta aquí..." class="chat-input">
+                <button id="send-btn" class="btn-secondary">Enviar</button>
+            </div>
+        </div>
+    </div>
+
+   <script>
+    // --- FUNCIONES GLOBALES DE CARRITO ---
+    // Estas funciones deben estar fuera del DOMContentLoaded para ser llamadas por los botones onclick
+
+    /**
+     * Añade un producto al carrito (o incrementa su cantidad si ya existe).
+     * Utiliza 'vintageBeatsCart' como clave en localStorage.
+     * * @param {string} id - ID único del producto (ej: 'v001', 'cd002').
+     * @param {string} name - Nombre del álbum/producto (ej: 'A night at the opera').
+     * @param {number} price - Precio del producto (ej: 950.00).
+     * @param {string} image - Ruta de la imagen.
+     * @param {string} artist - Nombre del artista/marca.
+     * @param {string} type - Tipo de producto (ej: 'Vinilo', 'CD', 'Reproductor').
+     */
+    function addToCart(id, name, price, image, artist, type) {
+        // Usamos 'vintageBeatsCart' para consistencia con la lógica del modal
+        let cart = JSON.parse(localStorage.getItem('vintageBeatsCart')) || [];
+
+        const newProduct = {
+            id: id,
+            name: name,
+            price: price,
+            image: image,
+            artist: artist,
+            type: type,
+            quantity: 1
+        };
+
+        // Buscar si el producto ya existe
+        const existingProductIndex = cart.findIndex(item => item.id === id);
+
+        if (existingProductIndex !== -1) {
+            // Si ya existe, incrementa la cantidad
+            cart[existingProductIndex].quantity += 1;
+        } else {
+            // Si no existe, añade el nuevo producto
+            cart.push(newProduct);
+        }
+
+        // Guardar, notificar y actualizar contador
+        localStorage.setItem('vintageBeatsCart', JSON.stringify(cart));
+        alert(`"${name}" añadido al carrito!`);
+        updateCartCount();
+    }
+
+    /**
+     * Actualiza el contador visual del carrito (el número que aparece en el ícono).
+     */
+    function updateCartCount() {
+        const cart = JSON.parse(localStorage.getItem('vintageBeatsCart')) || [];
+        const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+        
+        // Asume que tienes un elemento en tu HTML con el id="cart-count"
+        const cartCountElement = document.getElementById('cart-count');
+        if (cartCountElement) {
+            cartCountElement.textContent = totalItems;
+            // Opcional: mostrar/ocultar el contador si está en cero
+            cartCountElement.style.display = totalItems > 0 ? 'inline-block' : 'none'; 
+        }
+    }
+
+
+    document.addEventListener('DOMContentLoaded', function () {
+
+        // ----------------------------------------------------
+        // --- LÓGICA DE SESIÓN Y NAVEGACIÓN DINÁMICA ---
+        // ----------------------------------------------------
+        
+        const loginLink = document.getElementById('login-link');
+        const logoutLink = document.getElementById('logout-link');
+        
+        let sessionData = JSON.parse(localStorage.getItem('userSession'));
+
+        function updateNavIcons(isLoggedIn, userName = '') {
+            if (loginLink && logoutLink) {
+                if (isLoggedIn) {
+                    loginLink.style.display = 'none';
+                    logoutLink.style.display = 'inline-block';
+                    logoutLink.title = `Cerrar Sesión (${userName})`;
+                } else {
+                    loginLink.style.display = 'inline-block';
+                    logoutLink.style.display = 'none';
+                }
+            }
+        }
+
+        if (sessionData && sessionData.isLoggedIn) {
+            updateNavIcons(true, sessionData.name);
+            if (sessionData.justRegistered) {
+                alert(`¡Bienvenido/a a Vintage Beats, ${sessionData.name}!`);
+                sessionData.justRegistered = false;
+                localStorage.setItem('userSession', JSON.stringify(sessionData));
+            }
+        } else {
+            updateNavIcons(false);
+        }
+
+        if (logoutLink) {
+            logoutLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                localStorage.removeItem('userSession');
+                updateNavIcons(false);
+                alert('Sesión cerrada correctamente.');
+                window.location.reload();
+            });
+        }
+
+        // ----------------------------------------------------
+        // --- LÓGICA DEL CARRITO DE COMPRAS Y PAGOS (MODAL) ---
+        // ----------------------------------------------------
+        
+        const cartModal = document.getElementById('cart-modal');
+        const openCartButton = document.getElementById('cart-icon-link'); 
+        const closeCartButton = document.querySelector('.cart-close-button');
+        const cartItemsContainer = document.getElementById('cart-items-container');
+        const cartTotalDisplay = document.getElementById('cart-total');
+        const emptyCartMessage = document.getElementById('empty-cart-message');
+        const clearCartButton = document.getElementById('clear-cart-btn');
+        const paypalCheckoutBtn = document.getElementById('paypal-checkout-btn');
+
+        // Se inicializa el carrito usando la clave unificada
+        let cart = JSON.parse(localStorage.getItem('vintageBeatsCart')) || [];
+        
+        // Función para guardar el carrito y redibujar el modal
+        function saveCartAndUpdate() {
+            localStorage.setItem('vintageBeatsCart', JSON.stringify(cart));
+            renderCart();
+            updateCartCount(); // Llama a la función global para actualizar el contador
+        }
+
+        // Función para decrementar la cantidad de un ítem
+        function decrementQuantity(productId) {
+            const itemIndex = cart.findIndex(item => item.id === productId);
+            if (itemIndex !== -1) {
+                if (cart[itemIndex].quantity > 1) {
+                    cart[itemIndex].quantity -= 1;
+                } else {
+                    // Si la cantidad es 1, lo elimina
+                    cart.splice(itemIndex, 1);
+                }
+                saveCartAndUpdate();
+            }
+        }
+
+        // Función para incrementar la cantidad de un ítem
+        function incrementQuantity(productId) {
+            const itemIndex = cart.findIndex(item => item.id === productId);
+            if (itemIndex !== -1) {
+                cart[itemIndex].quantity += 1;
+                saveCartAndUpdate();
+            }
+        }
+
+        // Función para renderizar los items en el modal
+        function renderCart() {
+            cartItemsContainer.innerHTML = '';
+            let total = 0;
+
+            if (cart.length === 0) {
+                if (emptyCartMessage) emptyCartMessage.style.display = 'block';
+                if (paypalCheckoutBtn) paypalCheckoutBtn.disabled = true;
+                if (clearCartButton) clearCartButton.disabled = true;
+            } else {
+                if (emptyCartMessage) emptyCartMessage.style.display = 'none';
+                if (paypalCheckoutBtn) paypalCheckoutBtn.disabled = false;
+                if (clearCartButton) clearCartButton.disabled = false;
+                
+                cart.forEach((item) => {
+                    const itemSubtotal = item.price * item.quantity;
+                    total += itemSubtotal;
+
+                    const itemDiv = document.createElement('div');
+                    itemDiv.classList.add('cart-item');
+
+                    itemDiv.innerHTML = `
+                        <div class="cart-item-info">
+                            <span class="cart-item-name">${item.name} (${item.artist})</span>
+                            <div class="cart-quantity-controls">
+                                <button class="qty-btn decrement" data-id="${item.id}">-</button>
+                                <span class="qty-value">${item.quantity}</span>
+                                <button class="qty-btn increment" data-id="${item.id}">+</button>
+                            </div>
+                        </div>
+                        <span class="cart-item-price">$${itemSubtotal.toFixed(2)} MXN</span>
+                        <button class="remove-item-btn" data-id="${item.id}">&times;</button>
+                    `;
+                    cartItemsContainer.appendChild(itemDiv);
+                });
+            }
+            
+            if (cartTotalDisplay) cartTotalDisplay.textContent = `$${total.toFixed(2)} MXN`;
+        }
+
+        // Evento: Control de cantidad y eliminación dentro del modal
+        if (cartItemsContainer) {
+            cartItemsContainer.addEventListener('click', function(e) {
+                const target = e.target;
+                const productId = target.getAttribute('data-id');
+
+                if (!productId) return;
+
+                if (target.classList.contains('increment')) {
+                    incrementQuantity(productId);
+                } else if (target.classList.contains('decrement')) {
+                    decrementQuantity(productId);
+                } else if (target.classList.contains('remove-item-btn')) {
+                    // Eliminar completamente el producto
+                    const itemIndex = cart.findIndex(item => item.id === productId);
+                    if (itemIndex !== -1) {
+                        cart.splice(itemIndex, 1);
+                        saveCartAndUpdate();
+                    }
+                }
+            });
+        }
+
+        // Evento: Vaciar carrito
+        if (clearCartButton) {
+            clearCartButton.addEventListener('click', function() {
+                if (confirm('¿Estás seguro de que quieres vaciar el carrito?')) {
+                    cart = [];
+                    saveCartAndUpdate();
+                }
+            });
+        }
+        
+        // Evento: Simulación de Pago con PayPal
+        if (paypalCheckoutBtn) {
+            paypalCheckoutBtn.addEventListener('click', function() {
+                if (cart.length === 0) {
+                    alert('El carrito está vacío. ¡Agrega algo para comprar!');
+                    return;
+                }
+                
+                const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+                
+                alert(`
+                    --- SIMULACIÓN DE PAGO CON PAYPAL ---
+                    Total a pagar: $${total.toFixed(2)} MXN
+                    
+                    Pago Ficticio APROBADO.
+                    ¡Gracias por tu compra en Vintage Beats!
+                `);
+                
+                cart = [];
+                saveCartAndUpdate();
+                if (cartModal) cartModal.style.display = 'none';
+            });
+        }
+
+        // Manejo de la visibilidad del modal del carrito
+        if (openCartButton && cartModal) {
+            openCartButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                renderCart();
+                cartModal.style.display = 'flex';
+            });
+        }
+
+        if (closeCartButton && cartModal) {
+            closeCartButton.addEventListener('click', function() {
+                cartModal.style.display = 'none';
+            });
+        }
+        
+        // Cierra el modal al hacer clic fuera del contenido
+        window.addEventListener('click', function (event) {
+            if (event.target === cartModal) {
+                cartModal.style.display = 'none';
+            }
+        });
+        
+        // Inicializa el estado del carrito y el contador al cargar
+        renderCart(); 
+        updateCartCount();
+        
+        // ----------------------------------------------------
+        // --- LÓGICA DE REPRODUCCIÓN DE AUDIO ---
+        // ----------------------------------------------------
+        const audioTriggers = document.querySelectorAll('.audio-trigger');
+        let currentAudio = null; 
+
+        audioTriggers.forEach(image => {
+            image.style.cursor = 'pointer'; 
+            
+            // Efecto de hover visual
+            image.addEventListener('mouseenter', function() {
+                if (!currentAudio || currentAudio.id !== this.getAttribute('data-audio-id')) {
+                    this.style.borderColor = 'var(--primary-color)'; 
+                    this.style.boxShadow = '0 0 18px rgba(255, 0, 128, 0.7)';
+                }
+            });
+
+            image.addEventListener('mouseleave', function() {
+                if (!currentAudio || currentAudio.id !== this.getAttribute('data-audio-id')) {
+                    this.style.borderColor = 'var(--secondary-color)'; 
+                    this.style.boxShadow = '0 0 18px rgba(0, 255, 255, 0.5)';
+                }
+            });
+
+            // Lógica principal de play/pause
+            image.addEventListener('click', function () {
+                const audioId = this.getAttribute('data-audio-id');
+                const targetAudio = document.getElementById(audioId);
+
+                if (!targetAudio) return; 
+
+                if (targetAudio.paused) {
+                    if (currentAudio && currentAudio !== targetAudio) {
+                        currentAudio.pause();
+                        currentAudio.currentTime = 0;
+                        const prevImage = document.querySelector(`[data-audio-id="${currentAudio.id}"]`);
+                        if(prevImage) {
+                            prevImage.style.borderColor = 'var(--secondary-color)';
+                            prevImage.style.boxShadow = '0 0 18px rgba(0, 255, 255, 0.5)';
+                        }
+                    }
+                    
+                    targetAudio.play();
+                    currentAudio = targetAudio;
+
+                    this.style.borderColor = 'lime';
+                    this.style.boxShadow = '0 0 25px lime';
+
+                } else {
+                    targetAudio.pause();
+                    targetAudio.currentTime = 0;
+                    currentAudio = null; 
+
+                    this.style.borderColor = 'var(--secondary-color)';
+                    this.style.boxShadow = '0 0 18px rgba(0, 255, 255, 0.5)';
+                }
+            });
+
+            // Reseteo visual al terminar el audio
+            const audioElement = document.getElementById(image.getAttribute('data-audio-id'));
+            if (audioElement) {
+                audioElement.addEventListener('ended', function() {
+                    const endedImage = document.querySelector(`[data-audio-id="${this.id}"]`);
+                    if(endedImage) {
+                        endedImage.style.borderColor = 'var(--secondary-color)';
+                        endedImage.style.boxShadow = '0 0 18px rgba(0, 255, 255, 0.5)';
+                    }
+                    currentAudio = null;
+                });
+            }
+        });
+
+
+        // ----------------------------------------------------
+        // --- LÓGICA DEL CARRUSEL DE NOVEDADES ---
+        // ----------------------------------------------------
+        const flyerCarouselInner = document.querySelector('.flyer-carousel-inner');
+        const flyerCarouselWrapper = document.querySelector('.flyer-carousel-wrapper');
+        
+        if (flyerCarouselInner && flyerCarouselWrapper) {
+            const originalSlides = 6; 
+            const jumpSize = 1; 
+            const resetIndex = originalSlides; 
+            
+            let currentFlyerIndex = 0; 
+            const flyerIntervalTime = 4000; 
+            const slideWidthPercentage = 10; 
+
+            function nextFlyerSlide() {
+                currentFlyerIndex += jumpSize; 
+                let offset = -currentFlyerIndex * slideWidthPercentage;
+                flyerCarouselInner.style.transform = `translateX(${offset}%)`;
+
+                if (currentFlyerIndex >= resetIndex) { 
+                    setTimeout(() => {
+                        currentFlyerIndex = 0; 
+                        flyerCarouselInner.style.transition = 'none';
+                        flyerCarouselInner.style.transform = `translateX(0%)`;
+                        
+                        setTimeout(() => {
+                            flyerCarouselInner.style.transition = 'transform 0.8s ease-in-out';
+                        }, 50); 
+                    }, 800); 
+                }
+            }
+
+            let flyerCarouselInterval = setInterval(nextFlyerSlide, flyerIntervalTime);
+            
+            flyerCarouselWrapper.addEventListener('mouseenter', () => {
+                clearInterval(flyerCarouselInterval);
+            });
+
+            flyerCarouselWrapper.addEventListener('mouseleave', () => {
+                flyerCarouselInterval = setInterval(nextFlyerSlide, flyerIntervalTime);
+            });
+        }
+
+
+        // ----------------------------------------------------
+        // --- LÓGICA DEL CHATBOT ---
+        // ----------------------------------------------------
+        const toggleButton = document.getElementById('chatbot-toggle');
+        const chatWindow = document.getElementById('chatbot-window');
+        const chatBody = document.getElementById('chat-body'); 
+        const userInput = document.getElementById('user-input'); 
+        const sendButton = document.getElementById('send-btn'); 
+        const closeButton = document.getElementById('chat-close-btn'); 
+
+        // Verificación de elementos
+        if (toggleButton && chatWindow && chatBody && userInput && sendButton && closeButton) {
+            const responses = {
+                'pop': 'Para **Pop**, te recomendamos el vinilo de "Future Nostalgia" de Dua Lipa o el reproductor de CD portátil P-100 con acabado neón.',
+                'rock': 'En **Rock**, busca el vinilo de edición limitada de "Nevermind" (Nirvana) o nuestra colección de CDs de rock clásico de los 80s.',
+                'electronica': 'Para **Electrónica**, echa un vistazo a nuestros reproductores de vinilo DJ-Pro. ¡Ideales para mezclar! En CDs, tenemos una sección dedicada al Synthwave.',
+                'rap': 'Si buscas **Rap**, tenemos vinilos clásicos de los 90s (Tupac, Biggie) y una gran selección de álbumes modernos en CD. ¡Pregunta por los precios!',
+                'latina': 'La **Música Latina** está fuerte. Recomendamos el vinilo "El Mal Querer" de Rosalía o nuestros nuevos lanzamientos de reggaeton en CD. ¡Checa la sección de precios!',
+                'kpop': '¡Tenemos una sección de **K-Pop** muy popular! Mira los packs especiales de vinilos de edición limitada o los álbumes de grupos como BTS y Blackpink en CD.',
+                'cds': 'Nuestra selección de **CDs** incluye lo último en K-Pop, Rock Clásico y Electrónica. ¡Son más económicos y portátiles!',
+                'vinilos': 'Los **Vinilos** ofrecen la mejor calidad de sonido y son perfectos para coleccionar. Tenemos todos los géneros, desde Pop hasta Rap de los 90s.',
+                'reproductores': 'Buscas **Reproductores**? Tenemos tocadiscos vintage, reproductores de CD portátiles y minicomponentes con neón integrado.',
+                'precios': 'Los **Precios** varían: los CDs rondan los $15-$25 USD, los Vinilos de edición estándar $25-$40 USD y los reproductores desde $100 USD en adelante.',
+                'hola': '¡Hola! Soy RetroBot 9000. Dime qué estás buscando: género (Pop, Rock, etc.) o categoría (CDs, Vinilos, Reproductores, Precios).',
+                'gracias': '¡De nada! Si tienes más preguntas, solo escríbeme.'
+            };
+
+            function addMessage(text, sender) {
+                const p = document.createElement('p');
+                p.className = sender === 'bot' ? 'bot-message' : 'user-message';
+                p.innerHTML = text;
+                chatBody.appendChild(p);
+                chatBody.scrollTop = chatBody.scrollHeight;
+            }
+
+            function handleUserInput() {
+                const input = userInput.value.trim().toLowerCase();
+                if (input === '') return;
+
+                addMessage(userInput.value, 'user');
+                userInput.value = '';
+
+                let foundResponse = false;
+                for (const keyword in responses) {
+                    if (input.includes(keyword)) {
+                        setTimeout(() => {
+                            addMessage(responses[keyword], 'bot');
+                        }, 500); 
+                        foundResponse = true;
+                        break;
+                    }
+                }
+
+                if (!foundResponse) {
+                    setTimeout(() => {
+                        addMessage("Lo siento, no entendí tu pregunta. Intenta preguntar por un **género** (Rock, Pop) o una **categoría** (Precios, CDs, Reproductores).", 'bot');
+                    }, 500);
+                }
+            }
+            
+            function closeChat() {
+                chatWindow.style.display = 'none';
+                toggleButton.style.display = 'flex';
+            }
+            
+            function openChat() {
+                chatWindow.style.display = 'flex';
+                toggleButton.style.display = 'none';
+                userInput.focus();
+            }
+
+            toggleButton.addEventListener('click', openChat);
+            closeButton.addEventListener('click', closeChat);
+            sendButton.addEventListener('click', handleUserInput);
+
+            userInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    handleUserInput();
+                }
+            });
+            
+            chatWindow.style.display = 'none';
+            toggleButton.style.display = 'flex'; 
+        }
+    });
+    // Agrega esto al final de tu archivo JavaScript
+
+// ----------------------------------------------------
+// --- LÓGICA DEL CARRUSEL DE PRODUCTOS ---
+// ----------------------------------------------------
+// *** SELECTORES ACTUALIZADOS PARA TU CSS ***
+const productCarouselInner = document.querySelector('.carousel-inner'); 
+const productCarouselWrapper = document.querySelector('.auto-carousel-wrapper');
+
+if (productCarouselInner && productCarouselWrapper) {
+    // ⚠️ AJUSTA ESTOS VALORES según cuántos GRIDS completos quieras mostrar:
+    const allProductGrids = productCarouselInner.querySelectorAll('.product-grid');
+    const originalProductSlides = allProductGrids.length / 2; // Asumiendo que duplicaste los grids
+    
+    const productJumpSize = 1;       // Mueve 1 "Grid/Slide" completo
+    const productResetIndex = originalProductSlides; 
+    const productIntervalTime = 3000; // 5 segundos entre movimientos
+    // CLAVE: Cada "slide" (Grid) ocupa el 100% del ancho visible
+    const productSlideWidthPercentage = 100; 
+    
+    let currentProductIndex = 0; 
+
+    function nextProductSlide() {
+        currentProductIndex += productJumpSize; 
+        let offset = -currentProductIndex * productSlideWidthPercentage;
+        productCarouselInner.style.transform = `translateX(${offset}%)`;
+        productCarouselInner.style.transition = 'transform 0.8s ease-in-out';
+        
+        // Reinicio para el efecto infinito
+        if (currentProductIndex >= productResetIndex) { 
+            setTimeout(() => {
+                currentProductIndex = 0; 
+                productCarouselInner.style.transition = 'none';
+                productCarouselInner.style.transform = `translateX(0%)`;
+                
+                setTimeout(() => {
+                    productCarouselInner.style.transition = 'transform 0.5s ease-in-out';
+                }, 50); 
+            }, 800); 
+        }
+    }
+
+    let productCarouselInterval = setInterval(nextProductSlide, productIntervalTime);
+    
+    // Pausar al pasar el ratón
+    productCarouselWrapper.addEventListener('mouseenter', () => {
+        clearInterval(productCarouselInterval);
+    });
+
+    // Reanudar al quitar el ratón
+    productCarouselWrapper.addEventListener('mouseleave', () => {
+        productCarouselInterval = setInterval(nextProductSlide, productIntervalTime);
+    });
+}
+</script>
+</body>
+</html>

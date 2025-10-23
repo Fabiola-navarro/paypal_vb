@@ -1,0 +1,1688 @@
+/* ========================================= */
+/* 1. VARIABLES GLOBALES Y PALETA DE COLORES */
+/* ========================================= */
+:root {
+    /* 🎨 PALETA NEÓN VINTAGE (Synthwave/Outrun) */
+    --neon-magenta: #ff0080;   /* Magenta Brillante (Principal) */
+    --neon-cyan: #00ffff;      /* Cian Eléctrico (Secundario/Contraste) */
+    --neon-purple: #8a2be2;    /* Púrpura Profundo (Acento de Fondo) */
+    --neon-orange: #ff9900;    /* Naranja Cálido (Acento Secundario) */
+    
+    /* ⚙️ FONDOS Y TEXTO BASE */
+    --background-dark: #1a003a; /* Fondo Morado Oscuro Profundo (Eléctrico) */
+    --card-background: #25004d; /* Fondo de Tarjetas con un ligero toque morado */
+    --crema-vintage: #fafaed;   /* Blanco Roto/Crema (Para Textos y Títulos sin Glow) */
+    --text-light: #e0e0e0;      /* Texto Claro */
+    --border-color: #4a148c;    /* Bordes y Separadores Púrpura Oscuro */
+    
+    /* Variables para Chatbot/Carrito */
+    --dark-bg-color: var(--background-dark);
+    --text-color-dark: #222;
+    --text-color-light: var(--text-light);
+
+    /* ⚠️ FUENTES VINTAGE/RETRO (NO-PIXEL) */
+    --font-principal: 'Russo One', sans-serif; 
+    --font-pixel: 'VT323', monospace; 
+    --font-sans: 'Roboto', sans-serif; 
+}
+
+/* ========================================= */
+/* 2. ESTILOS BASE Y AJUSTE DE ALTURA */
+/* ========================================= */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--background-dark);
+    color: var(--text-light);
+    font-family: var(--font-principal); 
+    font-size: 1.05em; 
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    overflow-x: hidden; 
+    font-weight: 400;
+    letter-spacing: 0.5px; 
+    /* Fondo con gradiente sutil para efecto de cielo nocturno retro */
+    background-image: linear-gradient(180deg, var(--background-dark) 0%, #110029 100%);
+}
+
+.page-wrap {
+    min-height: 100vh; 
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* 💡 CLAVE DE SEPARACIÓN CON GLOW DE NEÓN */
+.section-wrapper {
+    padding: 80px 0; 
+    /* Borde con brillo púrpura/magenta */
+    border-top: 1px solid rgba(255, 0, 128, 0.5); 
+    box-shadow: 0 -5px 20px rgba(138, 43, 226, 0.5); /* Sombra púrpura difusa y dramática */
+    position: relative; 
+}
+
+/* 💡 EXCEPCIÓN: La primera sección no necesita borde superior ni sombra */
+main > .section-wrapper:first-of-type {
+    border-top: none;
+    box-shadow: none;
+    padding-top: 60px; 
+}
+
+
+h1, h2, h3, h4 {
+    font-family: var(--font-pixel); 
+    color: var(--crema-vintage); 
+    line-height: 1.2;
+    text-transform: uppercase; 
+    letter-spacing: 3px; /* Más espaciado para un look retro */
+}
+
+/* Ajustes de tamaño para la fuente VT323 */
+h1 { font-size: 3.5em; } 
+h2 { font-size: 2.5em; }
+h3 { font-size: 1.8em; }
+
+/* CLASE MAESTRA DE NEÓN */
+.neon-glow {
+    --glow-color: var(--neon-magenta); /* Por defecto Magenta */
+    color: var(--crema-vintage);
+    text-shadow: 
+        0 0 7px var(--glow-color), /* Sombra interna más pequeña */
+        0 0 20px var(--glow-color), /* Sombra media */
+        0 0 40px rgba(255, 255, 255, 0.7); /* Halo blanco para intensidad */
+    transition: text-shadow 0.4s ease-in-out, color 0.4s;
+}
+
+a {
+    color: var(--neon-cyan); 
+    text-decoration: none;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+a:hover {
+    color: var(--neon-magenta); 
+    text-shadow: 
+        0 0 5px var(--neon-magenta),
+        0 0 10px rgba(255, 0, 128, 0.5);
+}
+
+main {
+    padding-top: 0; 
+    margin-top: 0; 
+}
+
+
+/* ========================================= */
+/* 3. ENCABEZADO Y NAVEGACIÓN (HEADER) - STICKY FUNCIONAL */
+/* ========================================= */
+
+.main-header {
+    /* **CRUCIAL:** Estas propiedades anulan position: sticky */
+    overflow: visible !important; /* Asegura que no está ocultando nada */
+    height: auto !important;     /* No debe tener altura fija */
+    
+    /* Si el header tiene un display: flex o grid, quítale la altura fija. */
+}
+
+.banner-top {
+    width: 100%; 
+    height: 100px;
+    background-color: var(--background-dark); 
+    text-align: center; 
+}
+.header-banner {
+    width: 100%; 
+    max-height: 100px; 
+    object-fit: cover; 
+    display: block; 
+}
+
+.main-nav {
+    background-color: rgba(26, 0, 58, 0.95); /* Semi-transparente para efecto 'vidrio' neón */
+    padding: 10px 0; 
+    position: sticky;
+    top: 0; 
+    width: 100%; 
+    /* Sombra de neón dual */
+    box-shadow: 
+        0 2px 15px rgba(0, 0, 0, 0.9), 
+        0 0 10px var(--neon-cyan);
+    z-index: 1000; 
+    border-bottom: 1px solid var(--neon-cyan);
+}
+
+.main-nav .container {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    gap: 20px;
+}
+
+.brand-area {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0; 
+}
+
+.brand-area .logo-link {
+    display: flex;
+    align-items: center;
+    color: var(--crema-vintage);
+}
+
+.header-logo-circle {
+    max-height: 40px; 
+    width: 40px;
+    object-fit: cover;
+    border-radius: 50%; 
+    border: 3px solid var(--neon-magenta); 
+    margin-right: 10px;
+    box-shadow: 0 0 8px var(--neon-magenta);
+}
+
+.brand-name {
+    font-family: var(--font-pixel);
+    font-size: 1.4em;
+    font-weight: normal;
+    text-transform: none; 
+    text-shadow: 0 0 5px var(--neon-magenta);
+}
+
+.nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 30px;
+    flex-grow: 1; 
+    justify-content: center; 
+}
+
+.main-nav a {
+    color: var(--text-light);
+    text-transform: uppercase;
+    font-family: var(--font-principal); 
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+.main-nav a:hover {
+    color: var(--neon-cyan); 
+    text-shadow: 
+        0 0 5px var(--neon-cyan),
+        0 0 15px rgba(0, 255, 255, 0.5);
+}
+
+.icon-group {
+    display: flex;
+    align-items: center;
+    gap: 15px; 
+    font-size: 1.7em;
+    flex-shrink: 0;
+}
+
+.user-icon, .cart-icon {
+    color: var(--crema-vintage);
+    text-shadow: 0 0 5px var(--neon-cyan);
+    transition: color 0.3s, text-shadow 0.3s;
+}
+.user-icon:hover, .cart-icon:hover {
+    color: var(--neon-magenta);
+    text-shadow: 0 0 8px var(--neon-magenta);
+}
+
+
+/* ========================================= */
+/* 4. ESTILOS DE BOTONES (CTAs) */
+/* ========================================= */
+.btn {
+    padding: 14px 30px; /* Más padding para un look más robusto */
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+    font-family: var(--font-principal);
+    border-radius: 2px; /* Más angulares para look retro */
+    transition: background-color 0.3s, box-shadow 0.3s, color 0.3s, transform 0.1s;
+    box-shadow: 0 4px var(--neon-purple); /* Sombra 3D sutil */
+    transform: translateY(0);
+}
+.btn:active {
+    transform: translateY(4px); /* Efecto "pulsado" */
+    box-shadow: 0 0 var(--neon-purple);
+}
+
+.btn-primary {
+    background-color: var(--neon-magenta);
+    color: var(--background-dark); 
+    border: 1px solid var(--neon-magenta);
+    box-shadow: 0 0 10px var(--neon-magenta), 0 4px var(--neon-purple); 
+}
+
+.btn-primary:hover {
+    background-color: #ff3399; 
+    color: var(--crema-vintage); 
+    box-shadow: 0 0 20px var(--neon-magenta), 0 4px var(--neon-purple); 
+}
+
+.btn-secondary {
+    background-color: var(--card-background); 
+    color: var(--neon-cyan); 
+    border: 1px solid var(--neon-cyan);
+    box-shadow: 0 0 8px rgba(0, 255, 255, 0.7), 0 4px var(--neon-purple); 
+}
+
+.btn-secondary:hover {
+    background-color: var(--neon-cyan); 
+    color: var(--background-dark); 
+    box-shadow: 0 0 15px var(--neon-cyan), 0 4px var(--neon-purple);
+}
+
+/* ========================================= */
+/* 5. DISEÑO DE CONTENIDO (HERO Y GRIDS) */
+/* ========================================= */
+
+.hero-full-screen {
+    background-size: cover;
+    background-attachment: fixed; /* Parallax suave, más retro */
+    min-height: 80vh; 
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    text-align: center;
+    padding: 0; 
+    position: relative;
+    z-index: 10;
+}
+#hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    
+    min-width: 50%;
+    min-height: 50%; /* Cubre el 100% de la altura de la sección #inicio */
+    
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+}
+
+.hero-full-screen::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7); /* Oscurecimiento */
+    background-image: radial-gradient(circle, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+    padding: 50px 70px; 
+    background-color: rgba(26, 0, 58, 0.9); /* Fondo más oscuro */
+    border-radius: 0; /* Más angular */
+    
+    border: 4px solid var(--neon-cyan);
+    box-shadow: 
+        0 0 10px rgba(0, 0, 0, 0.8), 
+        0 0 20px var(--neon-cyan), 
+        0 0 40px var(--neon-magenta); /* Neón dual más dramático */
+    animation: neon-pulse 3s infinite alternate;
+}
+
+@keyframes neon-pulse {
+    from {
+        box-shadow: 0 0 20px var(--neon-cyan), 0 0 40px var(--neon-magenta);
+    }
+    to {
+        box-shadow: 0 0 30px var(--neon-magenta), 0 0 60px var(--neon-cyan);
+    }
+}
+
+.hero-content h1 {
+    font-size: 3em; 
+    font-weight: normal;
+    color: var(--crema-vintage);
+    /* Efecto de título potente */
+    text-shadow: 
+        0 0 5px var(--neon-magenta), 
+        0 0 15px var(--neon-magenta), 
+        0 0 30px rgba(255, 0, 128, 0.9),
+        2px 2px 0 var(--background-dark); /* Sombra sólida para el efecto 'glitch' */
+}
+
+.hero-slogan {
+    font-size: 1.2em;
+    color: var(--text-light);
+    margin: 20px 0 30px 0; 
+    line-height: 1.5;
+    font-family: var(--font-pixel); 
+    letter-spacing: 1px;
+    text-shadow: 0 0 3px var(--neon-orange);
+}
+
+
+/* ========================================= */
+/* 6. PIE DE PÁGINA (FOOTER) - ESTILO COLUMNAS */
+/* ========================================= */
+
+.main-footer {
+    background-color: var(--background-dark); 
+    padding: 60px 0 30px 0; 
+    border-top: 1px solid rgba(255, 0, 128, 0.5); 
+    box-shadow: 0 -5px 20px rgba(138, 43, 226, 0.5); /* Sombra consistente con la sección */
+    color: var(--text-light);
+    font-family: var(--font-principal); 
+    font-size: 1em; 
+    text-align: center; 
+    position: relative;
+    overflow: hidden; 
+}
+
+/* Patrón de líneas de escaneo CRT más fuerte */
+.main-footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        to bottom,
+        rgba(0, 255, 255, 0.1), 
+        rgba(255, 0, 128, 0.1) 2px, /* Líneas más gruesas y de color dual */
+        transparent 2px,
+        transparent 5px
+    );
+    pointer-events: none; 
+    opacity: 0.4;
+}
+
+
+.footer-content {
+    position: relative; 
+    z-index: 10;
+    display: flex;
+    justify-content: space-around; 
+    align-items: flex-start; 
+    flex-wrap: wrap;
+    max-width: 1200px; 
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-section {
+    width: 30%; 
+    min-width: 250px; 
+    margin: 25px 15px; 
+    text-align: left; 
+}
+
+.footer-section h4 {
+    font-family: var(--font-pixel); 
+    font-size: 1.8em; 
+    color: var(--neon-cyan); 
+    text-transform: uppercase;
+    
+    /* Neón cian fuerte */
+    text-shadow: 
+        0 0 5px var(--neon-cyan), 
+        0 0 15px var(--neon-cyan),
+        0 0 30px rgba(0, 255, 255, 0.9);
+        
+    border-bottom: 2px solid var(--neon-cyan); 
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    letter-spacing: 5px; /* Más ancho */
+    font-weight: normal; 
+}
+
+/* Ajustes de párrafo y dirección para mayor legibilidad (Russo One) */
+.footer-section p, 
+.footer-section address {
+    margin: 8px 0;
+    line-height: 1.6;
+    font-size: 1em; 
+    color: var(--text-light); 
+    font-weight: 400; 
+    letter-spacing: 0.5px;
+}
+
+.footer-section p strong {
+    font-weight: 700;
+    color: var(--neon-orange); /* Un toque de naranja cálido */
+    text-shadow: 0 0 2px var(--neon-orange);
+}
+
+.social-icons {
+    display: flex;
+    justify-content: flex-start; 
+    gap: 20px; 
+    margin-top: 15px;
+    font-size: 2.2em; 
+}
+
+.social-icons a {
+    display: inline-block; 
+    color: var(--crema-vintage); 
+    text-shadow: 0 0 5px var(--crema-vintage);
+    transition: color 0.3s, text-shadow 0.3s, transform 0.3s;
+}
+
+.social-icons a:hover {
+    color: var(--neon-magenta); 
+    text-shadow: 
+        0 0 10px var(--neon-magenta), 
+        0 0 20px rgba(255, 0, 128, 0.8);
+    transform: translateY(-5px) scale(1.1); 
+}
+
+.footer-bottom {
+    margin-top: 50px; 
+    padding-top: 25px;
+    border-top: 2px dashed var(--neon-cyan); /* Línea de puntos neón */
+    font-size: 1.1em; 
+    color: var(--neon-cyan);
+    text-shadow: 0 0 5px var(--neon-cyan); 
+    text-align: center; 
+    font-weight: 300;
+}
+
+/* ========================================= */
+/* 7. ADAPTACIÓN A MÓVILES (MEDIA QUERIES) */
+/* (Mantenemos la estructura existente, solo ajustes menores) */
+/* ========================================= */
+
+@media (max-width: 768px) {
+    
+    .product-grid {
+        grid-template-columns: 1fr; 
+    }
+    
+    .hero-content h1 {
+        font-size: 2.5em; 
+    }
+    
+    .main-nav .container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .brand-area {
+        margin-bottom: 5px;
+    }
+    
+    .nav-links {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    
+    /* Adaptación del Footer de Columnas a móvil (vuelve a ser apilado) */
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .footer-section {
+        width: 90%;
+        min-width: unset;
+        text-align: center; 
+    }
+
+    .footer-section h4 {
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    /* Centrar iconos sociales en móvil */
+    .social-icons {
+        justify-content: center;
+    }
+    
+    .footer-bottom {
+        text-align: center;
+    }
+}
+/* ========================================= */
+/* 8. ESTILOS DE LA SECCIÓN DE PRODUCTOS */
+/* ========================================= */
+
+.product-section-title {
+    text-align: center;
+    font-size: 2.8em;
+    margin-bottom: 40px;
+    color: var(--neon-cyan);
+    text-shadow: 
+        0 0 5px var(--neon-cyan), 
+        0 0 15px rgba(0, 255, 255, 0.8);
+}
+
+.auto-carousel-wrapper {
+    overflow: hidden; 
+    width: 100%;
+    position: relative;
+    padding: 30px 0; 
+    border-radius: 4px;
+}
+
+.carousel-inner {
+    display: flex;
+    transition: transform 1s ease-in-out; 
+}
+
+.carousel-slide {
+    min-width: 100%; 
+    box-sizing: border-box;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 40px; 
+    padding: 20px; 
+}
+
+
+/* --------------------------------- */
+/* Estilos de la Tarjeta de Producto */
+/* --------------------------------- */
+
+/* =========================================================
+   ESTILOS DE LA TARJETA DE PRODUCTO (.product-card)
+   ========================================================= */
+.product-card {
+    background-color: var(--card-background); 
+    border-radius: 2px;
+    padding: 10px; 
+    width: 100%; 
+    min-width: unset; 
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+    position: relative;
+    border: 2px solid var(--neon-purple);
+    
+    /* 🔑 CLAVE: Flexbox para organizar contenido */
+    display: flex; 
+    flex-direction: column; 
+    
+    /* 🔑 CLAVE: Altura fija para la consistencia en todas las tarjetas */
+    height: 480px; /* Puedes ajustar este valor si lo necesitas */
+    box-sizing: border-box; /* Asegura que padding y border no sumen a la altura */
+}
+
+.product-card:hover {
+    transform: translateY(-8px) scale(1.03); 
+    box-shadow: 
+        0 5px 30px rgba(0, 0, 0, 0.9), 
+        0 0 30px var(--neon-cyan);
+    border-color: var(--neon-cyan);
+}
+
+/* =========================================================
+   IMAGEN DEL PRODUCTO (.product-card-img)
+   ========================================================= */
+.product-card-img {
+    width: 100%; 
+    /* 🔑 CLAVE: Altura fija para estandarizar el espacio de la imagen */
+    height: 250px; /* Puedes ajustar este valor si lo necesitas */
+    
+    aspect-ratio: 1 / 1; 
+    object-fit: cover; /* Asegura que la imagen cubra el área sin distorsión */
+    border-radius: 2px; 
+    margin-bottom: 0; 
+    border: 5px solid var(--neon-magenta);
+    box-shadow: 0 0 20px rgba(255, 0, 128, 0.8); 
+    transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s; 
+    
+    /* Previene que la imagen se reduzca o crezca si es necesario */
+    flex-shrink: 0; 
+}
+
+.product-card:hover .product-card-img {
+    border-color: var(--neon-cyan);
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.9);
+}
+
+/* =========================================================
+   BLOQUE DE INFORMACIÓN (.product-info-block)
+   ========================================================= */
+.product-info-block {
+    /* 🔑 CORREGIDO: Eliminar flex-grow: 1 para que solo use el espacio necesario */
+    /* margin-top: 10px;  <-- Descomentar si deseas un espacio fijo */
+    /* margin-bottom: 5px;  <-- Descomentar si deseas un espacio fijo */
+    
+    display: flex;
+    flex-direction: column;
+    /* justify-content: flex-end; <-- No es necesario */
+    align-items: center; /* Asegura que el texto esté centrado */
+}
+
+/* =========================================================
+   TEXTO (album, artista, precio)
+   ========================================================= */
+.album-name {
+    font-size: 1.4em;
+    /* 🔑 CORREGIDO: Márgenes muy reducidos para compactar */
+    margin: 3px 0; 
+    color: var(--crema-vintage); 
+    font-family: var(--font-pixel); 
+    font-weight: normal; 
+    line-height: 1.3;
+    text-shadow: 0 0 3px var(--neon-orange);
+}
+
+.artist-name {
+    font-size: 1.1em;
+    color: var(--neon-cyan);
+    /* 🔑 CORREGIDO: Reducidos los márgenes */
+    margin: 5px 0 5px 0; 
+    font-family: var(--font-principal);
+    font-weight: 500;
+    letter-spacing: 1.5px;
+}
+
+.product-card-price {
+    font-size: 1.8em; 
+    color: var(--neon-magenta);
+    /* 🔑 CORREGIDO: Reducidos los márgenes */
+    margin: 5px 0 10px 0; 
+    font-family: var(--font-pixel); 
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-shadow: 0 0 8px var(--neon-magenta); 
+}
+
+/* =========================================================
+   BOTÓN AÑADIR AL CARRITO
+   ========================================================= */
+.btn-small {
+    padding: 12px 25px; 
+    font-size: 1.1em;
+    width: 100%; 
+    /* 🔑 CLAVE: Empuja el botón al fondo de la tarjeta */
+    margin-top: auto; 
+}
+
+/* --------------------------------- */
+/* Adaptación a Móviles del GRID dentro del Carrusel */
+/* --------------------------------- */
+@media (max-width: 768px) {
+    .product-grid {
+        grid-template-columns: 1fr; 
+        gap: 20px;
+        padding: 15px;
+    }
+    
+    .product-card {
+        min-height: 280px; 
+    }
+}
+/* ========================================= */
+/* 9. ESTILOS DE LA SECCIÓN GALERÍA */
+/* ========================================= */
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-auto-rows: 250px;
+    gap: 20px;
+    margin: 0 auto;
+}
+
+.gallery-item.large {
+    grid-column: span 2;
+    grid-row: span 1;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 2px;
+    border: 3px solid var(--neon-cyan);
+    box-shadow: 0 0 12px rgba(0, 255, 255, 0.4);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+    border-color: var(--neon-magenta);
+    box-shadow: 
+        0 0 20px var(--neon-magenta),
+        0 0 10px var(--neon-cyan);
+}
+
+.gallery-img, .gallery-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: brightness(0.8) contrast(1.1); /* Ligeramente más oscuro para neón */
+    transition: filter 0.3s;
+}
+.gallery-item:hover .gallery-img,
+.gallery-item:hover .gallery-video {
+    filter: brightness(1) contrast(1.2); /* Más brillante en hover */
+}
+
+
+.gallery-item:not(.video-item) .gallery-img,
+.gallery-video {
+    cursor: pointer;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    pointer-events: none; 
+}
+
+.gallery-item:hover .overlay {
+    opacity: 1;
+}
+
+.overlay-text {
+    color: var(--neon-cyan);
+    font-family: var(--font-pixel); 
+    font-size: 1.4em;
+    font-weight: bold;
+    text-shadow: 
+        0 0 5px var(--neon-cyan),
+        0 0 10px var(--neon-cyan);
+    transform: translateY(10px);
+    transition: transform 0.3s;
+}
+
+.gallery-item:hover .overlay-text {
+    transform: translateY(0);
+}
+
+.gallery-item.video-item {
+    cursor: default;
+}
+.gallery-item.video-item .overlay,
+.gallery-item.video-item:hover .overlay {
+    opacity: 0 !important;
+}
+
+
+@media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        grid-auto-rows: 200px;
+    }
+
+    .gallery-item.large {
+        grid-column: span 1;
+    }
+}
+/* ========================================= */
+/* 10. ESTILOS DEL LIGHTBOX (IMAGEN AMPLIADA) */
+/* ========================================= */
+
+.lightbox {
+    position: fixed;
+    z-index: 10000;
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.98); /* Más oscuro */
+}
+
+.lightbox-content {
+    margin: auto;
+    display: block;
+    width: 90%;
+    max-width: 900px;
+    max-height: 90%;
+    object-fit: contain;
+    border: 5px solid var(--neon-cyan);
+    box-shadow: 
+        0 0 30px var(--neon-cyan),
+        0 0 50px rgba(0, 255, 255, 0.5);
+    animation: zoom 0.5s;
+}
+
+@keyframes zoom {
+    from {transform: scale(0.3)} /* Zoom más dramático */
+    to {transform: scale(1)}
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #fff;
+    font-size: 50px; /* Más grande */
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+    text-shadow: 0 0 8px var(--neon-magenta), 0 0 15px var(--neon-magenta);
+}
+
+.lightbox-close:hover,
+.lightbox-close:focus {
+    color: var(--neon-magenta);
+    text-decoration: none;
+    cursor: pointer;
+    transform: rotate(5deg);
+}
+
+@media only screen and (max-width: 700px){
+    .lightbox-content {
+        width: 100%;
+    }
+}
+/* ========================================= */
+/* 11. ESTILOS DE LA SECCIÓN NOVEDADES (FLYERS) */
+/* ========================================= */
+
+.flyer-carousel-wrapper {
+    overflow: hidden; 
+    margin: 20px auto;
+    max-width: 100%; 
+    padding: 0 15px; 
+    border: none; 
+    box-shadow: none; 
+    border-radius: 2px; 
+}
+
+.flyer-carousel-inner {
+    width: 250%; 
+    display: flex;
+    transition: transform 0.8s ease-in-out; 
+}
+
+.flyer-slide {
+    padding: 0 15px; 
+    width: 10%; 
+    flex-shrink: 0;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 450px; /* Un poco más alto */
+}
+
+.flyer-img {
+    width: 100%; 
+    height: 100%; 
+    object-fit: contain; /* Cambiado a 'contain' para mostrar el flyer completo si es necesario */
+    box-shadow: 
+        0 10px 25px rgba(0, 0, 0, 0.7), 
+        0 0 15px var(--neon-magenta); /* Sombra magenta para destacar */
+    background-color: transparent; 
+    display: block;
+    border-radius: 2px;
+    border: 1px solid var(--neon-magenta);
+    transition: box-shadow 0.3s;
+}
+.flyer-img:hover {
+    box-shadow: 
+        0 10px 35px rgba(0, 0, 0, 0.9), 
+        0 0 25px var(--neon-cyan);
+}
+
+/* ========================================= */
+/* 12. ANIMACIONES DINÁMICAS (GLITCH Y FLICKER) */
+/* (Mantenemos y ajustamos ligeramente) */
+/* ========================================= */
+
+/* Efecto de Parpadeo Sutil (Flicker) para el Neón */
+@keyframes neon-flicker {
+    0%, 19.999%, 22%, 62.999%, 64%, 69.999%, 71%, 100% {
+        opacity: 1;
+        text-shadow: 
+            0 0 5px var(--neon-cyan), 
+            0 0 15px var(--neon-cyan),
+            0 0 25px var(--neon-magenta);
+    }
+    20%, 21.999%, 63%, 63.999%, 70%, 70.999% {
+        opacity: 0.7;
+        text-shadow: none;
+    }
+}
+
+/* Efecto Glitch para los Títulos (Cambio de color y desplazamiento) */
+@keyframes glitch-anim {
+    0% {
+        transform: translate(0);
+        color: var(--neon-cyan);
+    }
+    25% {
+        transform: translate(7px, 7px); /* Más desplazamiento */
+        color: var(--neon-magenta);
+    }
+    50% {
+        transform: translate(-7px, -7px);
+        color: var(--neon-cyan);
+    }
+    75% {
+        transform: translate(4px, 4px);
+        color: var(--neon-magenta);
+    }
+    100% {
+        transform: translate(0);
+        color: var(--neon-cyan);
+    }
+}
+
+.glowing-banner {
+    animation: banner-flicker 2s infinite alternate; /* Más rápido y visible */
+}
+
+@keyframes banner-flicker {
+    0%, 100% { 
+        filter: brightness(1) contrast(1);
+        opacity: 1;
+        box-shadow: none;
+    }
+    15%, 20%, 50%, 55%, 85%, 90% { 
+        filter: brightness(1.6) contrast(1.4); 
+        opacity: 0.6; 
+        box-shadow: 
+            0 0 15px rgba(0, 255, 255, 0.7), 
+            0 0 30px rgba(255, 0, 128, 0.5); 
+    }
+    17%, 52%, 87% { 
+        filter: brightness(2) contrast(1.8);
+        opacity: 0.4;
+        box-shadow: 
+            0 0 20px rgba(0, 255, 255, 0.9),
+            0 0 40px rgba(255, 0, 128, 0.7);
+    }
+}
+
+
+/* ========================================= */
+/* === ESTILOS PARA CHATBOT FLOTANTE === */
+/* ========================================= */
+
+#chatbot-wrapper {
+    position: fixed;
+    bottom: 25px; 
+    right: 25px; 
+    z-index: 1000; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: flex-end; 
+}
+
+#chatbot-toggle {
+    width: 65px; 
+    height: 65px;
+    border-radius: 50%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    font-size: 1.8rem;
+    cursor: pointer;
+    background-color: var(--neon-magenta);
+    color: var(--background-dark);
+    box-shadow: 
+        0 0 10px var(--neon-magenta), 
+        0 0 25px var(--neon-cyan); 
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+}
+
+#chatbot-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 
+        0 0 15px var(--neon-magenta), 
+        0 0 35px var(--neon-cyan);
+}
+
+#chatbot-window {
+    width: 350px; 
+    height: 450px; 
+    background: var(--card-background); 
+    border: 3px solid var(--neon-cyan); 
+    border-radius: 5px; /* Más angulares */
+    box-shadow: 
+        0 0 20px var(--neon-cyan), 
+        0 0 40px var(--neon-purple);
+    margin-bottom: 15px; 
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: absolute; 
+    bottom: 0; 
+    right: 0;
+    z-index: 999; 
+}
+
+#chat-header {
+    background: var(--neon-cyan);
+    color: var(--background-dark); 
+    padding: 12px 18px;
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-bottom: 2px solid var(--neon-magenta);
+    text-shadow: 0 0 2px var(--background-dark);
+}
+
+#chat-header h4 {
+    margin: 0;
+    flex-grow: 1; 
+    font-family: var(--font-principal);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--background-dark);
+}
+
+/* Estilo para el nuevo botón de cerrar (la 'x') */
+#chat-close-btn {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: var(--background-dark);
+    font-size: 1.8rem;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0;
+}
+
+#chat-close-btn:hover {
+    color: var(--neon-magenta); 
+}
+
+#chat-body {
+    flex-grow: 1;
+    padding: 15px;
+    overflow-y: auto; 
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Estilos de mensajes */
+.bot-message, .user-message {
+    padding: 10px 15px;
+    border-radius: 5px; /* Más angular */
+    max-width: 85%;
+    word-wrap: break-word;
+    font-size: 0.95em;
+    font-family: var(--font-sans);
+}
+
+.bot-message {
+    background: rgba(0, 255, 255, 0.15); /* Ligero neón azulado */
+    border: 1px solid var(--neon-cyan);
+    align-self: flex-start;
+    color: var(--text-color-light);
+    box-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+}
+
+.user-message {
+    background: rgba(255, 0, 128, 0.15); /* Ligero neón rosado */
+    border: 1px solid var(--neon-magenta);
+    align-self: flex-end;
+    text-align: right;
+    color: var(--text-color-light);
+    box-shadow: 0 0 5px rgba(255, 0, 128, 0.5);
+}
+
+#chat-input-area {
+    display: flex;
+    padding: 10px;
+    border-top: 2px solid var(--neon-cyan);
+    background: var(--background-dark); 
+}
+
+.chat-input {
+    flex-grow: 1;
+    padding: 12px;
+    border: 1px solid var(--neon-cyan);
+    border-radius: 3px;
+    background-color: var(--background-dark);
+    color: var(--text-color-light);
+    margin-right: 10px;
+    font-family: var(--font-pixel);
+    outline: none;
+    box-shadow: inset 0 0 5px rgba(0, 255, 255, 0.5);
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+.chat-input:focus {
+    border-color: var(--neon-magenta);
+    box-shadow: inset 0 0 8px var(--neon-magenta);
+}
+
+/* El botón de enviar usará .btn-secondary */
+.chat-input-area .btn {
+    padding: 8px 15px;
+    height: fit-content;
+}
+
+
+/* ========================================= */
+/* 15. AJUSTES PARA LA PÁGINA DE CARRITO */
+/* ========================================= */
+
+/* --- Estilos de la Página de Carrito --- */
+
+/* Estilo general de la sección para el resplandor */
+.neon-section {
+    padding: 60px 0;
+    background-color: var(--background-dark);
+}
+
+.cart-page-content {
+    display: flex;
+    flex-direction: column; 
+    gap: 40px;
+    padding: 20px 0;
+}
+
+@media (min-width: 900px) {
+    .cart-page-content {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+/* --- Lista de Items (Columna Izquierda) --- */
+.cart-items-list {
+    flex: 3;
+    min-width: 60%;
+    /* Efecto de borde neón para el contenedor */
+    border: 3px solid var(--neon-cyan);
+    box-shadow: 
+        0 0 15px var(--neon-cyan), 
+        inset 0 0 15px var(--neon-cyan),
+        0 0 25px var(--neon-purple);
+    padding: 20px;
+    border-radius: 5px;
+    background-color: var(--card-background);
+}
+
+.empty-cart-message {
+    text-align: center;
+    color: var(--neon-magenta);
+    font-family: var(--font-pixel);
+    font-size: 1.8em;
+    padding: 40px 10px;
+    text-shadow: 0 0 5px var(--neon-magenta);
+}
+
+/* Estilo para cada item individual */
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 2px dashed rgba(255, 0, 128, 0.4); /* Dashed magenta */
+    transition: background-color 0.3s ease;
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+}
+
+.cart-item:hover {
+    background-color: rgba(0, 255, 255, 0.05); /* Ligero hover cian */
+}
+
+.item-info {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex: 2;
+}
+
+.cart-item-img {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border: 3px solid var(--neon-magenta);
+    box-shadow: 0 0 12px rgba(255, 0, 128, 0.7);
+    border-radius: 2px;
+}
+
+.item-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.item-name {
+    font-family: var(--font-title);
+    font-size: 1.3em;
+    color: var(--crema-vintage);
+    letter-spacing: 1px;
+}
+
+.item-artist, .item-format {
+    font-family: var(--font-pixel);
+    color: var(--neon-cyan);
+    font-size: 1em;
+    text-shadow: 0 0 1px var(--neon-cyan);
+}
+
+.item-pricing {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    flex: 1;
+    min-width: 150px;
+}
+
+.item-price-label {
+    font-size: 0.9em;
+    color: var(--text-light);
+    font-family: var(--font-pixel);
+    letter-spacing: 1px;
+}
+
+.item-subtotal {
+    font-family: var(--font-pixel);
+    font-size: 1.8em;
+    margin: 5px 0 10px;
+    color: var(--neon-magenta);
+    text-shadow: 0 0 5px var(--neon-magenta);
+}
+
+/* Controles de Cantidad */
+.item-qty-controls {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    font-family: var(--font-pixel);
+    color: var(--neon-cyan);
+    font-size: 1.1em;
+}
+
+.qty-input {
+    width: 60px;
+    padding: 8px;
+    margin: 0 10px;
+    background-color: var(--background-dark);
+    border: 1px solid var(--neon-cyan);
+    color: var(--text-light);
+    text-align: center;
+    font-family: var(--font-pixel);
+    box-shadow: inset 0 0 5px rgba(0, 255, 255, 0.5);
+}
+
+/* --- Botón de Eliminar del Carrito --- */
+.remove-btn {
+    background: none;
+    border: none;
+    color: var(--neon-orange); /* Naranja de advertencia */
+    cursor: pointer;
+    font-size: 1.2em;
+    padding: 5px;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+.remove-btn:hover {
+    color: #fff;
+    text-shadow: 0 0 8px var(--neon-orange);
+}
+
+/* --- Resumen de Pago (Columna Derecha) --- */
+.cart-summary {
+    flex: 1;
+    min-width: 300px;
+    background-color: var(--card-background); 
+    padding: 30px;
+    border-radius: 5px;
+    /* Efecto de resplandor para la caja de resumen */
+    box-shadow: 
+        0 0 25px rgba(0, 255, 255, 0.5),
+        inset 0 0 10px rgba(0, 255, 255, 0.2);
+    border: 2px solid var(--neon-cyan);
+    height: fit-content;
+}
+
+.summary-title {
+    font-family: var(--font-title);
+    font-size: 2em;
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--neon-cyan);
+    text-shadow: 0 0 8px var(--neon-cyan);
+    letter-spacing: 3px;
+}
+
+.cart-total {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-family: var(--font-pixel);
+    font-size: 1.2em;
+    color: var(--text-light);
+}
+.cart-total span:first-child {
+    color: var(--neon-orange);
+}
+
+.cart-separator {
+    border-top: 3px dashed var(--neon-magenta);
+    margin: 15px 0 25px;
+}
+
+.final-total {
+    font-size: 2.2em;
+    margin-bottom: 30px;
+    font-weight: bold;
+    color: var(--neon-magenta);
+    text-shadow: 0 0 10px var(--neon-magenta);
+}
+
+.cart-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.btn-icon {
+    margin-right: 10px;
+}
+/* ========================================= */
+/* 8. ESTILOS DE LA SECCIÓN DE PRODUCTOS - AJUSTES DE CARRUSEL */
+/* ========================================= */
+
+.auto-carousel-wrapper {
+    overflow: hidden; 
+    width: 100%;
+    position: relative;
+    padding: 30px 0; 
+    border-radius: 4px;
+    /* Asegúrate de que el viewport es todo el contenedor */
+}
+
+.carousel-inner {
+    display: flex;
+    /* QUITAMOS el transition de aquí, el JS lo manejará. */
+    transition: transform 0.8s ease-in-out; /* Mantenemos si el JS no lo define al inicio */
+}
+
+/* CLAVE: Cada .product-grid se convierte en 1 "Slide" */
+.product-grid {
+    /* CLAVE: Ocupa el 100% del ancho del viewport visible */
+    min-width: 100%; 
+    flex-shrink: 0; /* Evita que se encoja */
+    
+    display: grid;
+    /* Muestra 3 columnas en desktop, según el minmax(280px) */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 40px; 
+    padding: 20px; 
+    box-sizing: border-box; /* Asegura que el padding no cause desbordamiento */
+}
+
+/* --------------------------------- */
+/* Adaptación a Móviles del GRID dentro del Carrusel */
+/* --------------------------------- */
+@media (max-width: 768px) {
+    .product-grid {
+        grid-template-columns: 1fr; /* Una columna en móvil */
+        gap: 20px;
+        padding: 15px;
+    }
+    
+    /* Nota: Si el carrusel muestra el grid, solo verán 1 columna a la vez. */
+}
+/* ========================================= */
+/* ESTILOS ESPECÍFICOS PARA TARJETAS DE CATEGORÍA */
+/* ========================================= */
+
+.category-card {
+    /* CLAVE: Cambiamos el display para que el enlace cubra toda la tarjeta */
+    display: flex; 
+    flex-direction: column;
+    text-decoration: none; /* Quitamos el subrayado del enlace */
+    color: inherit; /* Hereda el color base de texto */
+}
+
+/* Ocultamos el precio si lo tiene de base el .product-card */
+.category-card .product-card-price {
+    display: none; 
+}
+
+/* Aseguramos que el botón en una tarjeta de categoría use el estilo secundario */
+.category-card .btn-secondary {
+    background-color: var(--neon-cyan);
+    color: var(--background-dark);
+    border: none;
+}
+
+.category-card .btn-secondary:hover {
+    background-color: var(--neon-magenta);
+    box-shadow: 0 0 15px var(--neon-magenta), 0 4px var(--neon-purple);
+}
+
+/* Ajuste del tamaño de imagen para que se vea bien en las categorías */
+.category-card .product-card-img {
+    height: 70%; /* Ocupa buena parte de la tarjeta */
+    object-fit: cover; /* Asegura que la imagen se vea completa y bien */
+    border-color: var(--neon-cyan); /* Cambiamos el color de borde inicial */
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5); 
+}
+
+/* Cambiamos el brillo en hover de la tarjeta de categoría */
+.category-card:hover {
+    border-color: var(--neon-magenta);
+    box-shadow: 
+        0 5px 30px rgba(0, 0, 0, 0.9), 
+        0 0 30px var(--neon-magenta); /* Brillo magenta intenso al pasar el ratón */
+}
+
+/* ========================================= */
+/* VARIABLES DE COLOR (Asegúrate que coincidan con tus estilos globales) */
+/* ========================================= */
+/* :root {
+    --background-dark: #12002f;
+    --neon-cyan: #00ffff;
+    --neon-magenta: #ff00ff;
+} */
+
+
+/* ========================================= */
+/* 1. BARRA DE FILTRO: FLOTANTE Y SIN SEPARACIÓN */
+/* ========================================= */
+.filter-bar-wrapper {
+    width: 100%;
+    /* Hace que la barra se quede pegada debajo del menú principal */
+    position: sticky; 
+    top: 0; /* Ajusta este valor si la altura total de tu .main-nav es diferente */
+    z-index: 999; 
+    
+    /* Usamos el color de fondo base para eliminar la línea de separación visual */
+    background-color: var(--background-dark); 
+    padding: 15px 0;
+    
+    /* ❌ ELIMINA el borde inferior visible para dar el efecto flotante */
+    border-bottom: none; 
+    
+    /* Sombra intensa para el efecto de profundidad sobre el contenido */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.7); 
+}
+
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+/* ========================================= */
+/* 2. ESTILOS CREATIVOS DE BOTONES NEÓN */
+/* ========================================= */
+.filter-btn {
+    /* Tipografía Retro (Orbitron) */
+    font-family: 'Orbitron', sans-serif; /* ✔️ Fuente aplicada aquí */
+    font-size: 0.7em; 
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    
+    padding: 10px 20px;
+    background-color: transparent;
+    cursor: pointer;
+    /* Transición suave para todos los efectos */
+    transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94); 
+    border: none;
+    border-radius: 0;
+
+    /* Estilo por defecto (Neón Cian) */
+    color: var(--neon-cyan);
+    /* Borde falso usando box-shadow para el resplandor estático */
+    box-shadow: 
+        0 0 5px rgba(0, 255, 255, 0.5), /* Resplandor suave */
+        inset 0 0 5px rgba(0, 255, 255, 0.5), /* Resplandor interior */
+        0 0 0 1px var(--neon-cyan); /* Línea de borde delgado */
+}
+
+/* Efecto al pasar el ratón (Hover) */
+.filter-btn:hover {
+    color: #fff;
+    background-color: var(--neon-cyan);
+    
+    /* Efecto de Explosión de Brillo Neón */
+    box-shadow: 
+        0 0 10px var(--neon-cyan),
+        0 0 20px var(--neon-cyan),
+        0 0 40px var(--neon-cyan),
+        0 0 80px var(--neon-cyan);
+    transform: scale(1.05); /* Ligeramente más grande */
+}
+
+/* ESTADO ACTIVO: Botón "TODOS LOS PRODUCTOS" (Magenta) */
+.filter-btn[data-category="all"].active {
+    color: var(--background-dark);
+    background-color: var(--neon-magenta);
+    border: none;
+    
+    /* Efecto de Brillo Magenta */
+    box-shadow: 
+        0 0 10px var(--neon-magenta), 
+        0 0 20px var(--neon-magenta), 
+        0 0 40px var(--neon-magenta);
+    transform: scale(1.05); 
+}
+
+/* ESTADO ACTIVO: Categorías específicas (Cian) */
+.filter-btn:not([data-category="all"]).active {
+    color: var(--background-dark); 
+    background-color: var(--neon-cyan); 
+    border: none;
+
+    /* Efecto de Brillo Cian */
+    box-shadow: 
+        0 0 10px var(--neon-cyan), 
+        0 0 20px var(--neon-cyan), 
+        0 0 40px var(--neon-cyan);
+    transform: scale(1.05);
+}
+
+/* ========================================= */
+/* 3. MEDIA QUERY PARA MÓVILES */
+/* ========================================= */
+@media (max-width: 600px) {
+    .filter-buttons {
+        gap: 10px;
+        flex-wrap: wrap; /* Permite que los botones salten de línea */
+    }
+    .filter-btn {
+        padding: 8px 15px;
+        font-size: 0.6em; /* Fuente más pequeña en móvil */
+        letter-spacing: 1px;
+    }
+}
+/* Contenedor del Dropdown */
+.dropdown-filter {
+    position: relative; /* Esencial para posicionar el menú */
+    display: inline-block;
+}
+
+/* El botón principal "Género" */
+.dropdown-toggle {
+    /* Utiliza los mismos estilos de .filter-btn */
+    cursor: pointer;
+    /* Agrega un poco de estilo si quieres el icono de flecha */
+}
+
+/* Menú Desplegable (Inicialmente oculto) */
+.dropdown-menu {
+    display: none; /* Oculto por defecto */
+    position: absolute;
+    top: 100%; /* Coloca el menú justo debajo del botón */
+    left: 0;
+    z-index: 10; /* Asegura que esté sobre otros elementos */
+    
+    /* Estilos de apariencia */
+    min-width: 180px;
+    background-color: var(--card-background); /* Fondo oscuro */
+    border: 2px solid var(--neon-cyan); /* Borde de neón */
+    padding: 5px 0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    border-radius: 2px;
+}
+
+/* Estilo para mostrar el menú (activado por JS) */
+.dropdown-menu.show {
+    display: flex; /* Muestra el menú */
+    flex-direction: column;
+}
+
+/* Estilos de los botones individuales dentro del menú */
+.dropdown-menu .filter-btn {
+    width: 100%;
+    text-align: left;
+    background: none; /* Quita el fondo del botón principal */
+    border: none;
+    padding: 10px 15px;
+    
+    /* 🔑 CAMBIOS APLICADOS AQUÍ PARA IGUALAR LA TIPOGRAFÍA */
+    font-family: 'Orbitron', sans-serif; /* ✔️ Re-aplica la fuente 'Orbitron' */
+    font-size: 0.7em; /* ✔️ Usa el mismo tamaño que .filter-btn */
+    letter-spacing: 2px; /* ✔️ Usa el mismo espaciado */
+
+    cursor: pointer;
+    /* Estilo de color de texto neón */
+    color: var(--crema-vintage); 
+}
+
+.dropdown-menu .filter-btn:hover {
+    /* Efecto hover */
+    background-color: rgba(0, 255, 255, 0.1); /* Ligero fondo neón */
+    color: var(--neon-cyan);
+    text-shadow: 0 0 5px var(--neon-cyan);
+    transform: none; /* Quita la transformación de hover */
+    box-shadow: none;
+}

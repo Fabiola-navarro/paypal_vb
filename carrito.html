@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras | Vintage Beats</title>
+    
+    <link rel="stylesheet" href="styles.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Press+Start+2P&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ================================================= */
+        /* ESTILOS ESPECÍFICOS DEL CARRITO (Temática Neón)   */
+        /* (Se mantienen tus estilos proporcionados) */
+        /* ================================================= */
+        body { 
+            background-color: #1a0329; 
+            color: #fff; 
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Estilos del Contenedor Principal */
+        .cart-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #11001a;
+            border: 2px solid #a800ff; /* Morado neón */
+            box-shadow: 0 0 10px #a800ff, 0 0 20px #a800ff50, inset 0 0 10px #a800ff;
+        }
+
+        /* Título */
+        .cart-container h2 {
+            font-family: 'Orbitron', sans-serif;
+            color: #ff00c8; /* Rosa neón */
+            text-align: center;
+            margin-bottom: 30px;
+            text-shadow: 0 0 5px #ff00c8;
+        }
+
+        /* Contenedor de Ítems */
+        .cart-items-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        /* Item Individual */
+        .cart-item {
+            display: grid;
+            grid-template-columns: 100px 3fr 1fr 1fr 50px; /* Imagen, Detalles, Cantidad, Subtotal, Eliminar */
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px dashed #3d035c;
+            background-color: #1a0329;
+            box-shadow: 0 0 5px rgba(255, 0, 200, 0.2);
+            transition: background-color 0.2s;
+        }
+        .cart-item:hover {
+            background-color: #1f0533;
+        }
+
+        .cart-item-img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .cart-item-details {
+            padding-left: 20px;
+        }
+        .cart-item-name {
+            font-size: 1.1em;
+            color: #e0ccff;
+            margin: 0;
+        }
+        .cart-item-artist {
+            font-size: 0.9em;
+            color: #ff00c8;
+            margin: 2px 0 0;
+        }
+        .cart-item-price {
+            color: #999;
+            font-size: 0.9em;
+        }
+        .cart-item-subtotal {
+            font-weight: bold;
+            color: #a800ff; /* Morado */
+            text-align: right;
+            padding-right: 15px;
+        }
+
+        /* Resumen y Total */
+        .cart-summary {
+            padding-top: 20px;
+            border-top: 2px solid #a800ff;
+            text-align: right;
+        }
+        .cart-summary p {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #ff00c8;
+        }
+        #cart-total {
+            font-size: 1.8em;
+            text-shadow: 0 0 5px #ff00c8;
+        }
+
+        /* Botón de Checkout */
+        .checkout-btn {
+            padding: 15px 30px;
+            margin-top: 15px;
+            background-color: #ff00c8; 
+            color: #1a0329;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.2em;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 0 8px #ff00c8, 0 0 15px #ff00c8;
+            transition: all 0.3s;
+        }
+        .checkout-btn:hover {
+            background-color: #e000b0;
+            box-shadow: 0 0 10px #ff00c8, 0 0 25px #ff00c8;
+        }
+        
+        .empty-cart-msg {
+            text-align: center;
+            color: #999;
+            padding: 40px;
+            font-style: italic;
+        }
+        
+        /* Botón de eliminar */
+        .remove-btn { 
+            background: none; 
+            border: none; 
+            color: #ff00c8; 
+            cursor: pointer; 
+            font-size: 1.2em; 
+            transition: color 0.2s; 
+        }
+        .remove-btn:hover { color: #ff66e0; }
+
+        footer {
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="banner-top">
+            <img src="img/banner.png" alt="Banner superior" class="header-banner glowing-banner">
+        </div>
+
+        <nav class="main-nav">
+            <div class="container">
+                <div class="brand-area">
+                    <a href="index.html" class="logo-link">
+                        <img src="img/logo.png" alt="Logo" class="header-logo-circle"> 
+                        <span class="brand-name">Vintage Beats</span>
+                    </a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">INICIO</a></li>
+                    <li><a href="categoria.php">PRODUCTOS</a></li> 
+                </ul>
+                <div class="icon-group">
+                    <a href="user_profile.html" class="user-icon"><i class="fa fa-user"></i></a>
+                    <a href="carrito.html" class="cart-icon">
+                        <i class="fa fa-shopping-cart"></i>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="cart-container">
+        <h2>Carrito de Compras</h2>
+        
+        <div id="cart-items-list" class="cart-items-container">
+            </div>
+
+        <div class="cart-summary">
+            <p>Total a pagar: <span id="cart-total">$0.00</span></p>
+            <button class="checkout-btn" onclick="alert('Funcionalidad de pago no implementada. ¡Gracias por comprar!')">
+                Finalizar Compra
+            </button>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="footer-bottom">
+            &copy; 2025 V-Beats. Todos los derechos reservados.
+        </div>
+    </footer>
+
+    <script>
+        const CART_STORAGE_KEY = 'vintageBeatsCart'; 
+        const cartListElement = document.getElementById('cart-items-list'); 
+
+        function getCartItems() {
+            const cart = sessionStorage.getItem(CART_STORAGE_KEY);
+            return cart ? JSON.parse(cart) : [];
+        }
+
+        /**
+         * Guarda los ítems en sessionStorage y vuelve a dibujar el carrito.
+         */
+        function saveCartItems(items) {
+            sessionStorage.setItem(CART_STORAGE_KEY, JSON.stringify(items));
+            renderCart(); 
+        }
+
+        /**
+         * Dibuja los ítems del carrito, incluyendo imagen, detalles, cantidad, subtotal y botón de eliminar.
+         */
+        function renderCart() {
+            const cartItems = getCartItems();
+            let totalGeneral = 0;
+
+            if (!cartListElement) return;
+            cartListElement.innerHTML = ''; 
+
+            if (cartItems.length === 0) {
+                cartListElement.innerHTML = '<p class="empty-cart-msg">Tu carrito está vacío. ¡Ve a Productos para añadir tus favoritos! 🛍️</p>';
+                document.getElementById('cart-total').textContent = `$0.00`;
+                return;
+            }
+
+            cartItems.forEach(item => {
+                // Usamos parseFloat y toFixed(2) para asegurar el formato de moneda.
+                const price = parseFloat(item.price); 
+                const subtotal = price * item.quantity;
+                totalGeneral += subtotal;
+
+                const itemHTML = `
+                    <div class="cart-item" data-id="${item.id}">
+                        <img src="${item.image}" alt="${item.name}" class="cart-item-img">
+                        <div class="cart-item-details">
+                            <h4 class="cart-item-name">${item.name}</h4>
+                            <p class="cart-item-artist">${item.artist}</p>
+                            <p class="cart-item-price">P. Unitario: $${price.toFixed(2)}</p>
+                        </div>
+                        <div class="cart-item-quantity">
+                            <span>${item.quantity} Unidad(es)</span>
+                        </div>
+                        <div class="cart-item-subtotal">
+                            $${subtotal.toFixed(2)}
+                        </div>
+                        <button class="remove-btn" onclick="removeItem('${item.id}')" title="Eliminar Producto">
+                            <i class="fa fa-trash"></i>
+                        </button>
+                    </div>
+                `;
+                cartListElement.insertAdjacentHTML('beforeend', itemHTML);
+            });
+
+            // Actualizar el total general
+            const totalElement = document.getElementById('cart-total');
+            if (totalElement) {
+                totalElement.textContent = `$${totalGeneral.toFixed(2)}`;
+            }
+        }
+        
+        /**
+         * Elimina el producto completo del carrito usando su ID.
+         * @param {string} id - ID único del producto (el id se pasa como string para seguridad).
+         */
+        function removeItem(id) {
+            let cartItems = getCartItems();
+            
+            // Usamos una comparación estricta de string/number si es necesario, 
+            // pero el "==" funciona bien para IDs que pueden ser strings o números.
+            cartItems = cartItems.filter(item => item.id != id); 
+            
+            saveCartItems(cartItems); // Guardar y renderizar de nuevo
+        }
+
+
+        // Inicializar el carrito al cargar la página
+        document.addEventListener('DOMContentLoaded', renderCart);
+    </script>
+</body>
+</html>

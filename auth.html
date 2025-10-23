@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vintage Beats | Acceso</title>
+    
+    <link rel="stylesheet" href="styles.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Press+Start+2P&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Estilos específicos para la página de Auth */
+        body {
+            background-color: var(--dark-bg-color); 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .auth-container {
+            background-color: #111;
+            border: 3px solid var(--secondary-color); 
+            box-shadow: 0 0 25px var(--secondary-color);
+            padding: 40px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 450px;
+            text-align: center;
+        }
+
+        .auth-container .brand-header {
+            margin-bottom: 25px;
+        }
+
+        .auth-container .brand-header img {
+            width: 80px;
+            border-radius: 50%;
+            border: 2px solid var(--primary-color);
+        }
+
+        .auth-container .brand-header h1 {
+            color: white;
+            font-size: 1.5em;
+            margin-top: 10px;
+        }
+
+        /* Ocultar/Mostrar formularios */
+        .auth-form {
+            display: none;
+            padding-top: 20px;
+        }
+        .auth-form.active {
+            display: block;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--secondary-color);
+            font-size: 0.9em;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid var(--secondary-color);
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        .form-switch {
+            margin-top: 25px;
+            font-size: 0.9em;
+            color: #ccc;
+        }
+
+        .form-switch a {
+            color: var(--primary-color);
+            cursor: pointer;
+            text-decoration: underline;
+        }
+        
+        .btn-full {
+            width: 100%;
+            margin-top: 10px;
+        }
+        
+        /* Aseguramos que los estilos de btn-primary de styles.css se apliquen */
+        /* Si no tienes .btn-primary, revisa tus estilos principales */
+    </style>
+</head>
+<body>
+
+    <div class="auth-container">
+        
+        <div class="brand-header">
+            <img src="img/logo1.png" alt="Vintage Beats Logo">
+            <h1 class="neon-glow" style="--glow-color: var(--primary-color);">Vintage Beats</h1>
+        </div>
+
+        <form id="login-form" class="auth-form active">
+            <h2 class="neon-glow" style="--glow-color: var(--secondary-color); font-size: 1.3em;">Iniciar Sesión</h2>
+            
+            <div class="form-group">
+                <label for="login-user">Teléfono o Correo Electrónico</label>
+                <input type="text" id="login-user" name="user_email_phone" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="login-password">Contraseña</label>
+                <input type="password" id="login-password" name="password" required>
+            </div>
+            
+            <button type="submit" class="btn btn-primary btn-full">Acceder</button>
+            
+            <div class="form-switch">
+                ¿No tienes cuenta? <a id="show-register">Regístrate aquí</a>
+            </div>
+        </form>
+
+        <form id="register-form" class="auth-form">
+            <h2 class="neon-glow" style="--glow-color: var(--secondary-color); font-size: 1.3em;">Crear Cuenta</h2>
+            
+            <div class="form-group">
+                <label for="reg-name">Nombre</label>
+                <input type="text" id="reg-name" name="name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="reg-last">Apellido</label>
+                <input type="text" id="reg-last" name="lastname" required>
+            </div>
+
+            <div class="form-group">
+                <label for="reg-email">Correo Electrónico</label>
+                <input type="email" id="reg-email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="reg-phone">Teléfono (Se agrega lada automáticamente)</label>
+                <input type="tel" id="reg-phone" name="phone" placeholder="Ej. 55XXXXYYYY" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="reg-age">Edad</label>
+                <input type="number" id="reg-age" name="age" required min="18" max="99">
+            </div>
+            
+            <div class="form-group">
+                <label for="reg-password">Contraseña</label>
+                <input type="password" id="reg-password" name="password" required>
+            </div>
+
+            <div class="form-group">
+                <label for="reg-confirm">Confirmar Contraseña</label>
+                <input type="password" id="reg-confirm" name="confirm_password" required>
+            </div>
+            
+            <button type="submit" class="btn btn-primary btn-full">Registrar</button>
+
+            <div class="form-switch">
+                ¿Ya tienes cuenta? <a id="show-login">Iniciar Sesión</a>
+            </div>
+        </form>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const loginForm = document.getElementById('login-form');
+            const registerForm = document.getElementById('register-form');
+            const showRegisterLink = document.getElementById('show-register');
+            const showLoginLink = document.getElementById('show-login');
+            const authContainer = document.querySelector('.auth-container');
+
+            // Función para alternar formularios
+            function showForm(formToShow) {
+                loginForm.classList.remove('active');
+                registerForm.classList.remove('active');
+                formToShow.classList.add('active');
+            }
+
+            // Listeners para cambiar entre Login y Registro
+            showRegisterLink.addEventListener('click', () => showForm(registerForm));
+            showLoginLink.addEventListener('click', () => showForm(loginForm));
+
+            // Manejo del Login
+            loginForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+                // **Lógica de Autenticación SIMULADA**
+                const username = document.getElementById('login-user').value.trim();
+                
+                // En un caso real, validarías credenciales con el servidor
+                
+                // Simulación de éxito:
+                // Guardamos la sesión en el almacenamiento local para "index.html"
+                localStorage.setItem('userSession', JSON.stringify({
+                    isLoggedIn: true,
+                    name: 'Usuario Vintage' // Nombre simulado al iniciar sesión
+                }));
+                
+                // Redirigir al index
+                window.location.href = 'index.html'; 
+            });
+
+            // Manejo del Registro
+            registerForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+                
+                const name = document.getElementById('reg-name').value.trim();
+                const password = document.getElementById('reg-password').value;
+                const confirmPassword = document.getElementById('reg-confirm').value;
+
+                if (password !== confirmPassword) {
+                    alert('Error: Las contraseñas no coinciden.');
+                    return;
+                }
+                
+                // **Lógica de Registro SIMULADA**
+                // En un caso real, se enviaría toda la data (incluido el teléfono con lada) al servidor.
+
+                // Simulación de éxito:
+                // 1. Mostrar mensaje de bienvenida
+                alert(`¡Registro exitoso! Bienvenido/a, ${name}.`);
+
+                // 2. Guardar la sesión y el nombre
+                localStorage.setItem('userSession', JSON.stringify({
+                    isLoggedIn: true,
+                    name: name
+                }));
+
+                // 3. Redirigir al index
+                window.location.href = 'index.html'; 
+            });
+            
+            // Inicialización: El teléfono se guardará con la lada de México (52) de forma implícita
+            const phoneInput = document.getElementById('reg-phone');
+            if(phoneInput) {
+                 phoneInput.addEventListener('change', function() {
+                    let val = this.value.replace(/[^0-9]/g, ''); // Limpia caracteres no numéricos
+                    if(val.length > 0 && !val.startsWith('52')) {
+                        // Simulación de añadir lada 52 si no está presente
+                        this.value = '52' + val;
+                    }
+                 });
+            }
+        });
+        
+    </script>
+</body>
+</html>

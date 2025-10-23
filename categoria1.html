@@ -1,0 +1,1454 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos | Vintage Beats</title>
+    <link rel="stylesheet" href="styles.css"> 
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="banner-top">
+            <img src="img/banner.png" alt="Banner superior" class="header-banner glowing-banner">
+        </div>
+
+        <nav class="main-nav">
+            <div class="container">
+                <div class="brand-area">
+                    <a href="index.html" class="logo-link">
+                        <img src="img/logo.png" alt="Logo" class="header-logo-circle">
+                        <span class="brand-name">Vintage Beats</span>
+                    </a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">INICIO</a></li>
+                    <li><a href="categoria.html">PRODUCTOS</a></li>
+                    <li><a href="#galeria">GALERÍA</a></li>
+                    <li><a href="#sentibot">SENTIBOT</a></li>
+                    <li><a href="#novedades">NOVEDADES</a></li>
+                    <li><a href="#contacto">CONTACTO</a></li>
+                </ul>
+                <div class="icon-group">
+                    <a href="user_profile.html" class="user-icon"><i class="fa fa-user"></i></a>
+                    <a href="carrito.html" class="cart-icon">
+                        <i class="fa fa-shopping-cart"></i>
+                        <span id="cart-count" class="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="filter-bar-wrapper">
+        <div class="container">
+            <div class="filter-buttons">
+                <a class="filter-btn" href="index.html">INICIO</a>
+                
+                <button class="filter-btn active" data-filter="all">Todos los Productos</button>
+                <button class="filter-btn" data-filter="vinilos">Vinilos</button>
+                <button class="filter-btn" data-filter="cds">CD's</button>
+                <button class="filter-btn" data-filter="reproductores">Reproductores</button>
+                
+                <div class="dropdown-filter">
+                    <button class="filter-btn dropdown-toggle" id="genre-dropdown-btn">
+                        Género <i class="fa fa-caret-down"></i>
+                    </button>
+                    
+                    <div class="dropdown-menu" id="genre-dropdown-menu">
+                        <button class="filter-btn" data-filter="pop">Pop</button>
+                        <button class="filter-btn" data-filter="rock">Rock</button>
+                        <button class="filter-btn" data-filter="electronica">Electrónica</button>
+                        <button class="filter-btn" data-filter="latina">Latina</button>
+                        <button class="filter-btn" data-filter="kpop">K-Pop</button>
+                        <button class="filter-btn" data-filter="rap">Rap</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<main>
+    <section class="section-padding" id="productos">
+        <div class="container">
+            
+            <div id="product-list-container" class="product-grid"> 
+                  <div class="product-card" data-category="vinilos" data-genre="pop">
+                    <img 
+                        src="generos/taylor_v.png" 
+                        alt="Vinilo: taylor" 
+                        class="product-card-img audio-trigger" 
+                        data-audio-id="taylor-audio"
+                    >
+                    <div class="product-info-block">
+                        <h4 class="album-name">1989</h4>
+                        <p class="artist-name">Taylor Swift</p>
+                        <p class="product-card-price">$950.00 MXN</p>
+                    </div>
+                    <button class="btn btn-primary btn-small btn-add-to-cart" onclick="addToCart('v001', '1989', 950.00, 'generos/taylor_v.png', 'Taylor Swift', 'Vinilo')">
+                        Añadir al Carrito
+                    </button>
+                    <audio id="taylor-audio" src="generos/music/taylor.mp3" style="display: none;"></audio>
+                </div>
+
+                  <div class="product-card" data-category="cds" data-genre="pop">
+                    <img 
+                        src="generos/taylor_cd.png" 
+                        alt="CD: taylor" 
+                        class="product-card-img audio-trigger" 
+                        data-audio-id="taylor-audio"
+                    >
+                    <div class="product-info-block">
+                        <h4 class="album-name">1989</h4>
+                        <p class="artist-name">Taylor Swift</p>
+                        <p class="product-card-price">$450.00 MXN</p>
+                    </div>
+                    <button class="btn btn-primary btn-small btn-add-to-cart" onclick="addToCart('c001', '1989', 450.00, 'generos/taylor_cd.png', 'Taylor Swift', 'CD')">
+                        Añadir al Carrito
+                    </button>
+                    <audio id="taylor-audio" src="generos/music/taylor.mp3" style="display: none;"></audio>
+                </div>
+                
+                  <div class="product-card" data-category="vinilos" data-genre="pop">
+                    <img 
+                        src="generos/ariana_v.png" 
+                        alt="Vinilo: Ariana Grande " 
+                        class="product-card-img audio-trigger" 
+                        data-audio-id="ariana-audio"
+                    >
+                    <div class="product-info-block">
+                        <h4 class="album-name">Thank U, Next</h4>
+                        <p class="artist-name">Ariana Grande</p>
+                        <p class="product-card-price">$950.00 MXN</p>
+                    </div>
+                    <button class="btn btn-primary btn-small btn-add-to-cart" onclick="addToCart('v002', 'Thank U, Next', 950.00, 'generos/ariana_v.png', 'Ariana Grande', 'Vinilo')">
+                        Añadir al Carrito
+                    </button>
+                    <audio id="ariana-audio" src="generos/music/ariana.mp3" style="display: none;"></audio>
+                </div>
+
+                  <div class="product-card" data-category="cds" data-genre="pop">
+                    <img 
+                        src="generos/ariana_cd.png" 
+                        alt="CD: Ariana Grande " 
+                        class="product-card-img audio-trigger" 
+                        data-audio-id="ariana-audio"
+                    >
+                    <div class="product-info-block">
+                        <h4 class="album-name">Thank U, Next</h4>
+                        <p class="artist-name">Ariana Grande</p>
+                        <p class="product-card-price">$450.00 MXN</p>
+                    </div>
+                    <button class="btn btn-primary btn-small btn-add-to-cart" onclick="addToCart('c002', 'Thank U, Next', 450.00, 'generos/ariana_cd.png', 'Ariana Grande', 'CD')">
+                        Añadir al Carrito
+                    </button>
+                    <audio id="ariana-audio" src="generos/music/ariana.mp3" style="display: none;"></audio>
+                </div>
+
+                <div class="product-card" data-category="reproductores">
+                    <img src="img/r1.png" alt="Reproductor de vinilos moderno" class="product-card-img">
+                    <div class="product-info-block">
+                        <h4 class="album-name">Reproductor Moderno</h4>
+                        <p class="artist-name">Marca: AudioTech</p>
+                        <p class="product-card-price">$1,500.00 MXN</p>
+                    </div>
+                    <button class="btn btn-primary btn-small btn-add-to-cart" onclick="addToCart('r001', 'Reproductor Moderno', 1500.00, 'img/r1.png', 'AudioTech', 'Reproductor')">
+                        Añadir al Carrito
+                    </button>
+                </div>
+                
+                <div class="product-card" data-category="reproductores">
+                    <img src="img/r2.png" alt="Reproductor de vinilos compacto" class="product-card-img">
+                    <div class="product-info-block">
+                        <h4 class="album-name">Reproductor Compacto</h4>
+                        <p class="artist-name">Marca: SoundFlow</p>
+                        <p class="product-card-price">$950.00 MXN</p>
+                    </div>
+                    <button class="btn btn-primary btn-small btn-add-to-cart" onclick="addToCart('r002', 'Reproductor Compacto', 950.00, 'img/r2.png', 'SoundFlow', 'Reproductor')">
+                        Añadir al Carrito
+                    </button>
+                </div>
+                
+                <div class="product-card" data-category="reproductores">
+                    <img src="img/r3.png" alt="Reproductor de vinilos vintage" class="product-card-img">
+                    <div class="product-info-block">
+                        <h4 class="album-name">Reproductor Vintage</h4>
+                        <p class="artist-name">Marca: RetroWave</p>
+                        <p class="product-card-price">$1,800.00 MXN</p>
+                    </div>
+                    <button class="btn btn-primary btn-small btn-add-to-cart" onclick="addToCart('r003', 'Reproductor Vintage', 1800.00, 'img/r3.png', 'RetroWave', 'Reproductor')">
+                        Añadir al Carrito
+                    </button>
+                </div>
+                ------
+                  <div class="product-card" data-category="vinilos" data-genre="pop">
+                    <img 
+                        src="generos/dualipa_v.png" 
+                        alt="Vinilo: Dua Lipa" 
+                        class="product-card-img audio-trigger" 
+                        data-audio-id="dualipa-audio"
+                    >
+                    <div class="product-info-block">
+                        <h4 class="album-name">Future Nostalgia</h4>
+                        <p class="artist-name">Dua Lipa </p>
+                        <p class="product-card-price">$950.00 MXN</p>
+                    </div>
+                    <button class="btn btn-primary btn-small btn-add-to-cart" onclick="addToCart('v003', 'Future Nostalgia', 950.00, 'generos/dualipa_v.png', 'Dua Lipa', 'Vinilo')">
+                        Añadir al Carrito
+                    </button>
+                    <audio id="dualipa-audio" src="generos/music/dualipa.mp3" style="display: none;"></audio>
+                </div>
+
+                 <div class="product-card" data-category="cds" data-genre="pop">
+                    <img 
+                        src="generos/dualipa_cd.png" 
+                        alt="Vinilo: Dua Lipa" 
+                        class="product-card-img audio-trigger" 
+                        data-audio-id="dualipa-audio"
+                    >
+                    <div class="product-info-block">
+                        <h4 class="album-name">Future Nostalgia</h4>
+                        <p class="artist-name">Dua Lipa </p>
+                        <p class="product-card-price">$450.00 MXN</p>
+                    </div>
+                    <button class="btn btn-primary btn-small btn-add-to-cart" onclick="addToCart('c003', 'Future Nostalgia', 450.00, 'generos/dualipa_cd.png', 'Dua Lipa', 'CD')">
+                        Añadir al Carrito
+                    </button>
+                    <audio id="dualipa-audio" src="generos/music/dualipa.mp3" style="display: none;"></audio>
+                </div>
+                ------
+                   <div class="product-card" data-category="vinilos" data-genre="pop">
+                    <img 
+                        src="generos/ed_v.png" 
+                        alt="Vinilo: Ed Sheeran" 
+                        class="product-card-img audio-trigger" 
+                        data-audio-id="edsheeran-audio"
+                    >
+                    <div class="product-info-block">
+                        <h4 class="album-name">Divide</h4>
+                        <p class="artist-name">Ed Sheeran </p>
+                        <p class="product-card-price">$950.00 MXN</p>
+                    </div>
+                    <button class="btn btn-primary btn-small btn-add-to-cart" onclick="addToCart('v004', 'Divide', 950.00, 'generos/ed_v.png', 'Ed Sheeran', 'Vinilo')">
+                        Añadir al Carrito
+                    </button>
+                    <audio id="edsheeran-audio" src="generos/music/edsheeran.mp3" style="display: none;"></audio>
+                </div>
+
+                <div class="product-card" data-category="cds" data-genre="pop">
+                    <img 
+                        src="generos/ed_cd.png" 
+                        alt="Cd: Ed Sheeran" 
+                        class="product-card-img audio-trigger" 
+                        data-audio-id="edsheeran-audio"
+                    >
+                    <div class="product-info-block">
+                        <h4 class="album-name">Divide</h4>
+                        <p class="artist-name">Ed Sheeran </p>
+                        <p class="product-card-price">$450.00 MXN</p>
+                    </div>
+                    <button class="btn btn-primary btn-small btn-add-to-cart" onclick="addToCart('c004', 'Divide', 450.00, 'generos/ed_cd.png', 'Ed Sheeran', 'CD')">
+                        Añadir al Carrito
+                    </button>
+                    <audio id="edsheeran-audio" src="generos/music/edsheeran.mp3" style="display: none;"></audio>
+                </div>
+                -----------
+
+                <div class="product-card" data-category="vinilos" data-genre="pop">
+                    <img 
+                        src="generos/harry_v.png" 
+                        alt="Vinilo: Harry Styles" 
+                        class="product-card-img audio-trigger" 
+                        data-audio-id="harry-audio"
+                    >
+                    <div class="product-info-block">
+                        <h4 class="album-name">Fine Line </h4>
+                        <p class="artist-name">Harry Styles </p>
+                        <p class="product-card-price">$950.00 MXN</p>
+                    </div>
+                    <button class="btn btn-primary btn-small btn-add-to-cart" onclick="addToCart('v005', 'Fine Line ', 950.00, 'generos/harry_v.png', 'Harry Styles', 'Vinilo')">
+                        Añadir al Carrito
+                    </button>
+                    <audio id="harry-audio" src="generos/music/harry.mp3" style="display: none;"></audio>
+                </div>
+
+                <div class="product-card" data-category="cds" data-genre="pop">
+                    <img 
+                        src="generos/harry_cd.png" 
+                        alt="Vinilo: Harry Styles" 
+                        class="product-card-img audio-trigger" 
+                        data-audio-id="harry-audio"
+                    >
+                    <div class="product-info-block">
+                        <h4 class="album-name">Fine Line </h4>
+                        <p class="artist-name">Harry Styles </p>
+                        <p class="product-card-price">$450.00 MXN</p>
+                    </div>
+                    <button class="btn btn-primary btn-small btn-add-to-cart" onclick="addToCart('c005', 'Fine Line ', 450.00, 'generos/harry_cd.png', 'Harry Styles', 'CD')">
+                        Añadir al Carrito
+                    </button>
+                    <audio id="harry-audio" src="generos/music/harry.mp3" style="display: none;"></audio>
+                </div>
+                ------
+
+                <div class="product-card" data-category="vinilos" data-genre="pop">
+                    <img 
+                        src="generos/katy_v.png" 
+                        alt="Vinilo: Katy Perry" 
+                        class="product-card-img audio-trigger" 
+                        data-audio-id="katy-audio"
+                    >
+                    <div class="product-info-block">
+                        <h4 class="album-name">Teenage Dream </h4>
+                        <p class="artist-name">Katy Perry</p> </p>
+                        <p class="product-card-price">$950.00 MXN</p>
+                    </div>
+                    <button class="btn btn-primary btn-small btn-add-to-cart" onclick="addToCart('v006', 'Teenage Dream', 950.00, 'generos/katy_v.png', 'Katy Perry', 'Vinilo')">
+                        Añadir al Carrito
+                    </button>
+                    <audio id="katy-audio" src="generos/music/katy.mp3" style="display: none;"></audio>
+                </div>
+
+                 <div class="product-card" data-category="cds" data-genre="pop">
+                    <img 
+                        src="generos/katy_cd.png" 
+                        alt="Vinilo: Katy Perry" 
+                        class="product-card-img audio-trigger" 
+                        data-audio-id="katy-audio"
+                    >
+                    <div class="product-info-block">
+                        <h4 class="album-name">Teenage Dream </h4>
+                        <p class="artist-name">Katy Perry</p> </p>
+                        <p class="product-card-price">$450.00 MXN</p>
+                    </div>
+                    <button class="btn btn-primary btn-small btn-add-to-cart" onclick="addToCart('c006', 'Teenage Dream', 450.00, 'generos/katy_cd.png', 'Katy Perry', 'CD')">
+                        Añadir al Carrito
+                    </button>
+                    <audio id="katy-audio" src="generos/music/katy.mp3" style="display: none;"></audio>
+                </div>
+
+                ------
+                <div class="product-card" data-category="vinilos" data-genre="pop">
+                    <img 
+                        src="generos/justin_v.png" 
+                        alt="Vinilo: Justin Bieber" 
+                        class="product-card-img audio-trigger" 
+                        data-audio-id="justin-audio"
+                    >
+                    <div class="product-info-block">
+                        <h4 class="album-name">Purpuse</h4>
+                        <p class="artist-name">Justin Bieber</p> </p>
+                        <p class="product-card-price">$950.00 MXN</p>
+                    </div>
+                    <button class="btn btn-primary btn-small btn-add-to-cart" onclick="addToCart('v007', 'Purpuse', 950.00, 'generos/justin_v.png', 'Justin Bieber', 'Vinilo')">
+                        Añadir al Carrito
+                    </button>
+                    <audio id="justin-audio" src="generos/music/justin.mp3" style="display: none;"></audio>
+                </div>
+
+                <div class="product-card" data-category="cds" data-genre="pop">
+                    <img 
+                        src="generos/justin_cd.png" 
+                        alt="CD: Justin Bieber" 
+                        class="product-card-img audio-trigger" 
+                        data-audio-id="justin-audio"
+                    >
+                    <div class="product-info-block">
+                        <h4 class="album-name">Purpuse</h4>
+                        <p class="artist-name">Justin Bieber</p> </p>
+                        <p class="product-card-price">$450.00 MXN</p>
+                    </div>
+                    <button class="btn btn-primary btn-small btn-add-to-cart" onclick="addToCart('c007', 'Purpuse', 450.00, 'generos/justin_cd.png', 'Justin Bieber', 'CD')">
+                        Añadir al Carrito
+                    </button>
+                    <audio id="justin-audio" src="generos/music/justin.mp3" style="display: none;"></audio>
+                </div>
+                
+                -----------
+
+                <div class="product-card" data-category="vinilos" data-genre="rock">
+                    <img 
+                        src="generos/beatles_v.png" 
+                        alt="Vinilo: The Beatles" 
+                        class="product-card-img audio-trigger" 
+                        data-audio-id="beatles-audio"
+                    >
+                    <div class="product-info-block">
+                        <h4 class="album-name">Abbey Road</h4>
+                        <p class="artist-name">The Beatles</p> </p>
+                        <p class="product-card-price">$950.00 MXN</p>
+                    </div>
+                    <button class="btn btn-primary btn-small btn-add-to-cart" onclick="addToCart('v008', 'Abbey Road', 950.00, 'generos/beatles_v.png', 'The Beatles', 'Vinilo')">
+                        Añadir al Carrito
+                    </button>
+                    <audio id="beatles-audio" src="generos/music/beatles.mp3" style="display: none;"></audio>
+                </div>
+
+                
+                <div class="product-card" data-category="cds" data-genre="rock">
+                    <img 
+                        src="generos/beatles_cd.png" 
+                        alt="CD: The Beatles" 
+                        class="product-card-img audio-trigger" 
+                        data-audio-id="beatles-audio"
+                    >
+                    <div class="product-info-block">
+                        <h4 class="album-name">Abbey Road</h4>
+                        <p class="artist-name">The Beatles</p> </p>
+                        <p class="product-card-price">$450.00 MXN</p>
+                    </div>
+                    <button class="btn btn-primary btn-small btn-add-to-cart" onclick="addToCart('c008', 'Abbey Road', 450.00, 'generos/beatles_cd.png', 'The Beatles', 'CD')">
+                        Añadir al Carrito
+                    </button>
+                    <audio id="beatles-audio" src="generos/music/beatles.mp3" style="display: none;"></audio>
+                </div>
+
+                -----------
+
+                    <div class="product-card" data-category="vinilos" data-genre="rock">
+                    <img 
+                        src="generos/queen_v.png" 
+                        alt="Vinilo: Queen" 
+                        class="product-card-img audio-trigger" 
+                        data-audio-id="queen-audio"
+                    >
+                    <div class="product-info-block">
+                        <h4 class="album-name">A night at the opera</h4>
+                        <p class="artist-name">Queen</p>
+                        <p class="product-card-price">$950.00 MXN</p>
+                    </div>
+                    <button class="btn btn-primary btn-small btn-add-to-cart" onclick="addToCart('v009', 'A night at the opera', 950.00, 'generos/queen_v.png', 'Queen', 'Vinilo')">
+                        Añadir al Carrito
+                    </button>
+                    <audio id="queen-audio" src="generos/music/queen.mp3" style="display: none;"></audio>
+                </div>
+
+                <div class="product-card" data-category="cds" data-genre="rock">
+                    <img 
+                        src="generos/queen_cd.png" 
+                        alt="Vinilo: Queen" 
+                        class="product-card-img audio-trigger" 
+                        data-audio-id="queen-audio"
+                    >
+                    <div class="product-info-block">
+                        <h4 class="album-name">A night at the opera</h4>
+                        <p class="artist-name">Queen</p>
+                        <p class="product-card-price">$450.00 MXN</p>
+                    </div>
+                    <button class="btn btn-primary btn-small btn-add-to-cart" onclick="addToCart('c009', 'A night at the opera', 450.00, 'generos/queen_v.png', 'Queen', 'CD')">
+                        Añadir al Carrito
+                    </button>
+                    <audio id="queen-audio" src="generos/music/queen.mp3" style="display: none;"></audio>
+                </div>
+
+                -----------
+
+                <div class="product-card" data-category="Vinilos" data-genre="rock">
+                    <img 
+                        src="generos/rolling_v.png" 
+                        alt="Vinilo: The Rollin Stones" 
+                        class="product-card-img audio-trigger" 
+                        data-audio-id="rolling-audio"
+                    >
+                    <div class="product-info-block">
+                        <h4 class="album-name">Sticky fingers </h4>
+                        <p class="artist-name">The Rolling Stones</p>
+                        <p class="product-card-price">$950.00 MXN</p>
+                    </div>
+                    <button class="btn btn-primary btn-small btn-add-to-cart" onclick="addToCart('v010', 'Sticky fingers', 950.00, 'generos/rolling_v.png', 'The Rolling Stones', 'Vinilo')">
+                        Añadir al Carrito
+                    </button>
+                    <audio id="rolling-audio" src="generos/music/Sticky.mp3" style="display: none;"></audio>
+                </div>
+
+                <div class="product-card" data-category="cds" data-genre="rock">
+                    <img 
+                        src="generos/rolling_cd.png" 
+                        alt="CD: The Rollin Stones" 
+                        class="product-card-img audio-trigger" 
+                        data-audio-id="rolling-audio"
+                    >
+                    <div class="product-info-block">
+                        <h4 class="album-name">Sticky fingers </h4>
+                        <p class="artist-name">The Rolling Stones</p>
+                        <p class="product-card-price">$450.00 MXN</p>
+                    </div>
+                    <button class="btn btn-primary btn-small btn-add-to-cart" onclick="addToCart('c010', 'Sticky fingers', 450.00, 'generos/rolling_cd.png', 'The Rolling Stones', 'CD')">
+                        Añadir al Carrito
+                    </button>
+                    <audio id="rolling-audio" src="generos/music/Sticky.mp3" style="display: none;"></audio>
+                </div>
+
+                ------------
+
+                <div class="product-card" data-category="vinilos" data-genre="rock">
+                    <img 
+                        src="generos/nirvana_v.png" 
+                        alt="Vinilo: Nirvana" 
+                        class="product-card-img audio-trigger" 
+                        data-audio-id="nirvana-audio"
+                    >
+                    <div class="product-info-block">
+                        <h4 class="album-name">Nevermind </h4>
+                        <p class="artist-name">Nirvana</p>
+                        <p class="product-card-price">$950.00 MXN</p>
+                    </div>
+                    <button class="btn btn-primary btn-small btn-add-to-cart" onclick="addToCart('v011', 'Nevermind', 950.00, 'generos/nirvana_v.png', 'Nirvana', 'Vinilo')">
+                        Añadir al Carrito
+                    </button>
+                    <audio id="nirvana-audio" src="generos/music/nirvana.mp3" style="display: none;"></audio>
+                </div>
+
+                <div class="product-card" data-category="cds" data-genre="rock">
+                    <img 
+                        src="generos/nirvana_cd.png" 
+                        alt="CD: Nirvana" 
+                        class="product-card-img audio-trigger" 
+                        data-audio-id="nirvana-audio"
+                    >
+                    <div class="product-info-block">
+                        <h4 class="album-name">Nevermind </h4>
+                        <p class="artist-name">Nirvana</p>
+                        <p class="product-card-price">$450.00 MXN</p>
+                    </div>
+                    <button class="btn btn-primary btn-small btn-add-to-cart" onclick="addToCart('c011', 'Nevermind', 450.00, 'generos/nirvana_cd.png', 'Nirvana', 'CD')">
+                        Añadir al Carrito
+                    </button>
+                    <audio id="nirvana-audio" src="generos/music/nirvana.mp3" style="display: none;"></audio>
+                </div>
+
+                ----------------
+
+                <div class="product-card" data-category="vinilos" data-genre="rock">
+                    <img 
+                        src="generos/roses_v.png" 
+                        alt="Vinilo: Guns N' Roses" 
+                        class="product-card-img audio-trigger" 
+                        data-audio-id="roses-audio"
+                    >
+                    <div class="product-info-block">
+                        <h4 class="album-name">Appetite for destruction </h4>
+                        <p class="artist-name">Guns N' Roses</p>
+                        <p class="product-card-price">$950.00 MXN</p>
+                    </div>
+                    <button class="btn btn-primary btn-small btn-add-to-cart" onclick="addToCart('v012', 'Appetite for destruction', 950.00, 'generos/roses_v.png', 'Runs N Roses', 'Vinilo')">
+                        Añadir al Carrito
+                    </button>
+                    <audio id="roses-audio" src="generos/music/nirvana.mp3" style="display: none;"></audio>
+                </div>
+
+                <div class="product-card" data-category="cds" data-genre="rock">
+                    <img 
+                        src="generos/roses_cd.png" 
+                        alt="CD: Guns N' Roses" 
+                        class="product-card-img audio-trigger" 
+                        data-audio-id="roses-audio"
+                    >
+                    <div class="product-info-block">
+                        <h4 class="album-name">Appetite for destruction </h4>
+                        <p class="artist-name">Guns N' Roses</p>
+                        <p class="product-card-price">$450.00 MXN</p>
+                    </div>
+                    <button class="btn btn-primary btn-small btn-add-to-cart" onclick="addToCart('c012', 'Appetite for destruction', 450.00, 'generos/roses_cd.png', 'Runs N Roses', 'CD')">
+                        Añadir al Carrito
+                    </button>
+                    <audio id="roses-audio" src="generos/music/nirvana.mp3" style="display: none;"></audio>
+                </div>
+                ----------------
+
+                <div class="product-card" data-category="vinilos" data-genre="rock">
+                    <img 
+                        src="generos/hotel_v.png" 
+                        alt="Vinilo: The Eagles" 
+                        class="product-card-img audio-trigger" 
+                        data-audio-id="eagles-audio"
+                    >
+                    <div class="product-info-block">
+                        <h4 class="album-name">Hotel California</h4>
+                        <p class="artist-name">The Eagles</p>
+                        <p class="product-card-price">$950.00 MXN</p>
+                    </div>
+                    <button class="btn btn-primary btn-small btn-add-to-cart" onclick="addToCart('v013', 'Hotel California', 950.00, 'generos/hotel_v.png', 'The Eagles', 'Vinilo')">
+                        Añadir al Carrito
+                    </button>
+                    <audio id="eagles-audio" src="generos/music/hotelcal.mp3" style="display: none;"></audio>
+                </div>
+
+                 <div class="product-card" data-category="cds" data-genre="rock">
+                    <img 
+                        src="generos/hotel_cd.png" 
+                        alt="CD: The Eagles" 
+                        class="product-card-img audio-trigger" 
+                        data-audio-id="eagles-audio"
+                    >
+                    <div class="product-info-block">
+                        <h4 class="album-name">Hotel California</h4>
+                        <p class="artist-name">The Eagles</p>
+                        <p class="product-card-price">$450.00 MXN</p>
+                    </div>
+                    <button class="btn btn-primary btn-small btn-add-to-cart" onclick="addToCart('c013', 'Hotel California', 450.00, 'generos/hotel_cd.png', 'The Eagles', 'CD')">
+                        Añadir al Carrito
+                    </button>
+                    <audio id="eagles-audio" src="generos/music/hotelcal.mp3" style="display: none;"></audio>
+                </div>
+
+            ----------------
+
+            <div class="product-card" data-category="vinilos" data-genre="rap">
+                    <img 
+                        src="generos/2pac_v.png" 
+                        alt="Vinilo: 2Pac" 
+                        class="product-card-img audio-trigger" 
+                        data-audio-id="2pac-audio"
+                    >
+                    <div class="product-info-block">
+                        <h4 class="album-name">All eyez on me</h4>
+                        <p class="artist-name">2Pac Shakur</p>
+                        <p class="product-card-price">$950.00 MXN</p>
+                    </div>
+                    <button class="btn btn-primary btn-small btn-add-to-cart" onclick="addToCart('v014', 'All eyez on me', 950.00, 'generos/2pac_v.png', '2Pac', 'Vinilo')">
+                        Añadir al Carrito
+                    </button>
+                    <audio id="2pac-audio" src="generos/music/2pac.mp3" style="display: none;"></audio>
+                </div>
+
+                <div class="product-card" data-category="cds" data-genre="rap">
+                    <img 
+                        src="generos/2pac_cd.png" 
+                        alt="Vinilo: 2Pac" 
+                        class="product-card-img audio-trigger" 
+                        data-audio-id="2pac-audio"
+                    >
+                    <div class="product-info-block">
+                        <h4 class="album-name">All eyez on me</h4>
+                        <p class="artist-name">2Pac Shakur</p>
+                        <p class="product-card-price">$450.00 MXN</p>
+                    </div>
+                    <button class="btn btn-primary btn-small btn-add-to-cart" onclick="addToCart('c014', 'All eyez on me', 450.00, 'generos/2pac_cd.png', '2Pac', 'CD')">
+                        Añadir al Carrito
+                    </button>
+                    <audio id="2pac-audio" src="generos/music/2pac.mp3" style="display: none;"></audio>
+                </div>
+                ------
+
+                  <div class="product-card" data-category="vinilos" data-genre="rap">
+                    <img 
+                        src="generos/eminem_v.png" 
+                        alt="Vinilo: Eminem" 
+                        class="product-card-img audio-trigger" 
+                        data-audio-id="eminem-audio"
+                    >
+                    <div class="product-info-block">
+                        <h4 class="album-name">The marshall mathers</h4>
+                        <p class="artist-name">Eminem</p>
+                        <p class="product-card-price">$950.00 MXN</p>
+                    </div>
+                    <button class="btn btn-primary btn-small btn-add-to-cart" onclick="addToCart('v015', 'The marshall mathers', 950.00, 'generos/eminem_v.png', 'Eminem', 'Vinilo')">
+                        Añadir al Carrito
+                    </button>
+                    <audio id="eminem-audio" src="generos/music/eminem.mp3" style="display: none;"></audio>
+                </div>
+
+                 <div class="product-card" data-category="cds" data-genre="rap">
+                    <img 
+                        src="generos/eminem_cd.png" 
+                        alt="Vinilo: Eminem" 
+                        class="product-card-img audio-trigger" 
+                        data-audio-id="eminem-audio"
+                    >
+                    <div class="product-info-block">
+                        <h4 class="album-name">The marshall mathers</h4>
+                        <p class="artist-name">Eminem</p>
+                        <p class="product-card-price">$450.00 MXN</p>
+                    </div>
+                    <button class="btn btn-primary btn-small btn-add-to-cart" onclick="addToCart('c015', 'The marshall mathers', 450.00, 'generos/eminem_cd.png', 'Eminem', 'CD')">
+                        Añadir al Carrito
+                    </button>
+                    <audio id="eminem-audio" src="generos/music/eminem.mp3" style="display: none;"></audio>
+                </div>
+                -----------
+                 <div class="product-card" data-category="vinilos" data-genre="electronica">
+                    <img 
+                        src="generos/calvin_v.png" 
+                        alt="Vinilo: Calvin Harris" 
+                        class="product-card-img audio-trigger" 
+                        data-audio-id="calvin-audio"
+                    >
+                    <div class="product-info-block">
+                        <h4 class="album-name">18 Months </h4>
+                        <p class="artist-name">Calvin Harris</p>
+                        <p class="product-card-price">$950.00 MXN</p>
+                    </div>
+                    <button class="btn btn-primary btn-small btn-add-to-cart" onclick="addToCart('v016', '18 Months', 950.00, 'generos/calvin_v.png', 'Calvin Harris', 'Vinilo')">
+                        Añadir al Carrito
+                    </button>
+                    <audio id="calvin-audio" src="generos/music/calvin.mp3" style="display: none;"></audio>
+                </div>
+
+                <div class="product-card" data-category="cds" data-genre="electronica">
+                    <img 
+                        src="generos/calvin_cd.png" 
+                        alt="Vinilo: Calvin Harris" 
+                        class="product-card-img audio-trigger" 
+                        data-audio-id="calvin-audio"
+                    >
+                    <div class="product-info-block">
+                        <h4 class="album-name">18 Months </h4>
+                        <p class="artist-name">Calvin Harris</p>
+                        <p class="product-card-price">$450.00 MXN</p>
+                    </div>
+                    <button class="btn btn-primary btn-small btn-add-to-cart" onclick="addToCart('c016', '18 Months', 450.00, 'generos/calvin_cd.png', 'Calvin Harris', 'CD')">
+                        Añadir al Carrito
+                    </button>
+                    <audio id="calvin-audio" src="generos/music/calvin.mp3" style="display: none;"></audio>
+                </div>
+
+                ----------------
+
+                <div class="product-card" data-category="vinilos" data-genre="electronica">
+                    <img 
+                        src="generos/avici_v.png" 
+                        alt="Vinilo: Avicii" 
+                        class="product-card-img audio-trigger" 
+                        data-audio-id="avici-audio"
+                    >
+                    <div class="product-info-block">
+                        <h4 class="album-name">True </h4>
+                        <p class="artist-name">Avicii</p>
+                        <p class="product-card-price">$950.00 MXN</p>
+                    </div>
+                    <button class="btn btn-primary btn-small btn-add-to-cart" onclick="addToCart('v017', 'True', 950.00, 'generos/avici_v.png', 'Avicii', 'Vinilo')">
+                        Añadir al Carrito
+                    </button>
+                    <audio id="avici-audio" src="generos/music/avici.mp3" style="display: none;"></audio>
+                </div>
+
+                <div class="product-card" data-category="cds" data-genre="electronica">
+                    <img 
+                        src="generos/avici_cd.png" 
+                        alt="CD: Avicii" 
+                        class="product-card-img audio-trigger" 
+                        data-audio-id="avici-audio"
+                    >
+                    <div class="product-info-block">
+                        <h4 class="album-name">True </h4>
+                        <p class="artist-name">Avicii</p>
+                        <p class="product-card-price">$450.00 MXN</p>
+                    </div>
+                    <button class="btn btn-primary btn-small btn-add-to-cart" onclick="addToCart('c017', 'True', 450.00, 'generos/avici_cd.png', 'Avicii', 'CD')">
+                        Añadir al Carrito
+                    </button>
+                    <audio id="avici-audio" src="generos/music/avici.mp3" style="display: none;"></audio>
+                </div>
+
+                -----------
+
+                <div class="product-card" data-category="vinilos" data-genre="electronica">
+                    <img 
+                        src="generos/david_v.png" 
+                        alt="Vinilo: David Guetta" 
+                        class="product-card-img audio-trigger" 
+                        data-audio-id="david-audio"
+                    >
+                    <div class="product-info-block">
+                        <h4 class="album-name">Nothing but the Beat</h4>
+                        <p class="artist-name">David Guetta</p>
+                        <p class="product-card-price">$950.00 MXN</p>
+                    </div>
+                    <button class="btn btn-primary btn-small btn-add-to-cart" onclick="addToCart('v018', 'Nothing but the Beat', 950.00, 'generos/david_v.png', 'David Guetta', 'Vinilo')">
+                        Añadir al Carrito
+                    </button>
+                    <audio id="david-audio" src="generos/music/david.mp3" style="display: none;"></audio>
+                </div>
+
+                
+                <div class="product-card" data-category="cds" data-genre="electronica">
+                    <img 
+                        src="generos/david_cd.png" 
+                        alt="CD: David Guetta" 
+                        class="product-card-img audio-trigger" 
+                        data-audio-id="david-audio"
+                    >
+                    <div class="product-info-block">
+                        <h4 class="album-name">Nothing but the Beat</h4>
+                        <p class="artist-name">David Guetta</p>
+                        <p class="product-card-price">$450.00 MXN</p>
+                    </div>
+                    <button class="btn btn-primary btn-small btn-add-to-cart" onclick="addToCart('c018', 'Nothing but the Beat', 450.00, 'generos/david_cd.png', 'David Guetta', 'CD')">
+                        Añadir al Carrito
+                    </button>
+                    <audio id="david-audio" src="generos/music/david.mp3" style="display: none;"></audio>
+                </div>
+
+
+                ------------
+
+                
+                <div class="product-card" data-category="vinilos" data-genre="electronica">
+                    <img 
+                        src="generos/skrillex_v.png" 
+                        alt="Vinilo: Skrillex" 
+                        class="product-card-img audio-trigger" 
+                        data-audio-id="skrillex-audio"
+                    >
+                    <div class="product-info-block">
+                        <h4 class="album-name">Bangarang </h4>
+                        <p class="artist-name">Skrillex</p>
+                        <p class="product-card-price">$950.00 MXN</p>
+                    </div>
+                    <button class="btn btn-primary btn-small btn-add-to-cart" onclick="addToCart('v019', 'Bangarang ', 950.00, 'generos/skrillex_v.png', 'Skrillex', 'Vinilo')">
+                        Añadir al Carrito
+                    </button>
+                    <audio id="skrillex-audio" src="generos/music/skrillex.mp3" style="display: none;"></audio>
+                </div>
+
+                <div class="product-card" data-category="cds" data-genre="electronica">
+                    <img 
+                        src="generos/skrillex_cd.png" 
+                        alt="CD: Skrillex" 
+                        class="product-card-img audio-trigger" 
+                        data-audio-id="skrillex-audio"
+                    >
+                    <div class="product-info-block">
+                        <h4 class="album-name">Bangarang </h4>
+                        <p class="artist-name">Skrillex</p>
+                        <p class="product-card-price">$450.00 MXN</p>
+                    </div>
+                    <button class="btn btn-primary btn-small btn-add-to-cart" onclick="addToCart('c019', 'Bangarang ', 450.00, 'generos/skrillex_cd.png', 'Skrillex', 'CD')">
+                        Añadir al Carrito
+                    </button>
+                    <audio id="skrillex-audio" src="generos/music/skrillex.mp3" style="display: none;"></audio>
+                </div>
+
+                ----------------
+
+                <div class="product-card" data-category="vinilos" data-genre="electronica">
+                    <img 
+                        src="generos/marshmelo_v.png" 
+                        alt="Vinilo: Marshmello" 
+                        class="product-card-img audio-trigger" 
+                        data-audio-id="marsh-audio"
+                    >
+                    <div class="product-info-block">
+                        <h4 class="album-name">Joytime</h4>
+                        <p class="artist-name">Marshmello</p>
+                        <p class="product-card-price">$950.00 MXN</p>
+                    </div>
+                    <button class="btn btn-primary btn-small btn-add-to-cart" onclick="addToCart('v020', 'Joytime', 950.00, 'generos/marshmelo_v.png', 'Marshmello', 'Vinilo')">
+                        Añadir al Carrito
+                    </button>
+                    <audio id="marsh-audio" src="generos/music/marsh.mp3" style="display: none;"></audio>
+                </div>
+
+                <div class="product-card" data-category="cds" data-genre="electronica">
+                    <img 
+                        src="generos/marshmelo_cd.png" 
+                        alt="Vinilo: Marshmello" 
+                        class="product-card-img audio-trigger" 
+                        data-audio-id="marsh-audio"
+                    >
+                    <div class="product-info-block">
+                        <h4 class="album-name">Joytime</h4>
+                        <p class="artist-name">Marshmello</p>
+                        <p class="product-card-price">$450.00 MXN</p>
+                    </div>
+                    <button class="btn btn-primary btn-small btn-add-to-cart" onclick="addToCart('c020', 'Joytime', 450.00, 'generos/marshmelo_cd.png', 'Marshmello', 'CD')">
+                        Añadir al Carrito
+                    </button>
+                    <audio id="marsh-audio" src="generos/music/marsh.mp3" style="display: none;"></audio>
+                </div>
+                ----------------
+
+                 <div class="product-card" data-category="vinilos" data-genre="latina">
+                    <img 
+                        src="generos/luismi_v.png" 
+                        alt="Vinilo: Luis Miguel" 
+                        class="product-card-img audio-trigger" 
+                        data-audio-id="luismi-audio"
+                    >
+                    <div class="product-info-block">
+                        <h4 class="album-name">Romance </h4>
+                        <p class="artist-name">Luis Miguel</p>
+                        <p class="product-card-price">$950.00 MXN</p>
+                    </div>
+                    <button class="btn btn-primary btn-small btn-add-to-cart" onclick="addToCart('v021', 'Romance ', 950.00, 'generos/luismi_v.png', 'Luis Miguel', 'Vinilo')">
+                        Añadir al Carrito
+                    </button>
+                    <audio id="luismi-audio" src="generos/music/LuisMiguel.mp3" style="display: none;"></audio>
+                </div>
+
+                 <div class="product-card" data-category="cds" data-genre="latina">
+                    <img 
+                        src="generos/luismi_cd.png" 
+                        alt="CD: Luis Miguel" 
+                        class="product-card-img audio-trigger" 
+                        data-audio-id="luismi-audio"
+                    >
+                    <div class="product-info-block">
+                        <h4 class="album-name">Romance </h4>
+                        <p class="artist-name">Luis Miguel</p>
+                        <p class="product-card-price">$450.00 MXN</p>
+                    </div>
+                    <button class="btn btn-primary btn-small btn-add-to-cart" onclick="addToCart('c021', 'Romance ', 450.00, 'generos/luismi_cd.png', 'Luis Miguel', 'CD')">
+                        Añadir al Carrito
+                    </button>
+                    <audio id="luismi-audio" src="generos/music/LuisMiguel.mp3" style="display: none;"></audio>
+                </div>
+
+                ----------------
+
+                <div class="product-card" data-category="vinilos" data-genre="latina">
+                    <img 
+                        src="generos/juan_vi.png" 
+                        alt="Vinilo: Juan Gabriel" 
+                        class="product-card-img audio-trigger" 
+                        data-audio-id="juan-audio"
+                    >
+                    <div class="product-info-block">
+                        <h4 class="album-name">Recuerdos</h4>
+                        <p class="artist-name">Juan Gabriel</p>
+                        <p class="product-card-price">$950.00 MXN</p>
+                    </div>
+                    <button class="btn btn-primary btn-small btn-add-to-cart" onclick="addToCart('v022', 'Recuerdos', 950.00, 'generos/juan_vi.png', 'Juan Gabriel', 'Vinilo')">
+                        Añadir al Carrito
+                    </button>
+                    <audio id="juan-audio" src="generos/music/juangabriel.mp3" style="display: none;"></audio>
+                </div>
+
+                <div class="product-card" data-category="cds" data-genre="latina">
+                    <img 
+                        src="generos/juan_cd.png" 
+                        alt="CD: Juan Gabriel" 
+                        class="product-card-img audio-trigger" 
+                        data-audio-id="juan-audio"
+                    >
+                    <div class="product-info-block">
+                        <h4 class="album-name">Recuerdos</h4>
+                        <p class="artist-name">Juan Gabriel</p>
+                        <p class="product-card-price">$450.00 MXN</p>
+                    </div>
+                    <button class="btn btn-primary btn-small btn-add-to-cart" onclick="addToCart('c022', 'Recuerdos', 450.00, 'generos/juan_cd.png', 'Juan Gabriel', 'CD')">
+                        Añadir al Carrito
+                    </button>
+                    <audio id="juan-audio" src="generos/music/juangabriel.mp3" style="display: none;"></audio>
+                </div>
+
+                -----------------
+
+                
+                <div class="product-card" data-category="vinilos" data-genre="latina">
+                    <img 
+                        src="generos/selena_v.png" 
+                        alt="Vinilo: Selena Quintanilla" 
+                        class="product-card-img audio-trigger" 
+                        data-audio-id="selena-audio"
+                        >
+                    <div class="product-info-block">
+                        <h4 class="album-name">Amor Prohibido</h4>
+                        <p class="artist-name">Selena Quintanilla</p>
+                        <p class="product-card-price">$950.00 MXN</p>
+                    </div>
+                    <button class="btn btn-primary btn-small btn-add-to-cart" onclick="addToCart('v023', 'Amor Prohibido', 950.00, 'generos/selena_v.png', 'Selena Quintanilla', 'Vinilo')">
+                        Añadir al Carrito
+                    </button>
+                    <audio id="selena-audio" src="generos/music/selena.mp3" style="display: none;"></audio>
+                </div>
+
+                
+                <div class="product-card" data-category="cds" data-genre="latina">
+                    <img 
+                        src="generos/selena_cd.png" 
+                        alt="Vinilo: Selena Quintanilla" 
+                        class="product-card-img audio-trigger" 
+                        data-audio-id="selena-audio"
+                    >
+                    <div class="product-info-block">
+                        <h4 class="album-name">Amor Prohibido</h4>
+                        <p class="artist-name">Selena Quintanilla</p>
+                        <p class="product-card-price">$450.00 MXN</p>
+                    </div>
+                    <button class="btn btn-primary btn-small btn-add-to-cart" onclick="addToCart('c023', 'Amor Prohibido', 450.00, 'generos/selena_cd.png', 'Selena Quintanilla', 'CD')">
+                        Añadir al Carrito
+                    </button>
+                    <audio id="selena-audio" src="generos/music/selena.mp3" style="display: none;"></audio>
+                </div>
+                --------------------
+
+                <div class="product-card" data-category="vinilos" data-genre="latina">
+                    <img 
+                        src="generos/bunny_v.png" 
+                        alt="Vinilo: Bad Bunny" 
+                        class="product-card-img audio-trigger" 
+                        data-audio-id="bunny-audio"
+                        >
+                    <div class="product-info-block">
+                        <h4 class="album-name">YHLQMDLG</h4>
+                        <p class="artist-name">Bad Bunny</p>
+                        <p class="product-card-price">$950.00 MXN</p>
+                    </div>
+                    <button class="btn btn-primary btn-small btn-add-to-cart" onclick="addToCart('v024', 'YHLQMDLG', 950.00, 'generos/bunny_v.png', 'Bad Bunny', 'Vinilo')">
+                        Añadir al Carrito
+                    </button>
+                    <audio id="bunny-audio" src="generos/music/badbunny.mp3" style="display: none;"></audio>
+                </div>
+
+                
+                <div class="product-card" data-category="cds" data-genre="latina">
+                    <img 
+                        src="generos/bunny_cd.png" 
+                        alt="CD: Bad Bunny" 
+                        class="product-card-img audio-trigger" 
+                        data-audio-id="bunny-audio"
+                        >
+                    <div class="product-info-block">
+                        <h4 class="album-name">YHLQMDLG</h4>
+                        <p class="artist-name">Bad Bunny</p>
+                        <p class="product-card-price">$450.00 MXN</p>
+                    </div>
+                    <button class="btn btn-primary btn-small btn-add-to-cart" onclick="addToCart('c024', 'YHLQMDLG', 450.00, 'generos/bunny_cd.png', 'Bad Bunny', 'CD')">
+                        Añadir al Carrito
+                    </button>
+                    <audio id="bunny-audio" src="generos/music/badbunny.mp3" style="display: none;"></audio>
+                </div>
+
+                --------------------
+
+                <div class="product-card" data-category="vinilos" data-genre="latina">
+                    <img 
+                        src="generos/rosalia_v.png" 
+                        alt="Vinilo: Rosalia" 
+                        class="product-card-img audio-trigger" 
+                        data-audio-id="rosalia-audio"
+                        >
+                    <div class="product-info-block">
+                        <h4 class="album-name">El Mal Querer</h4>
+                        <p class="artist-name">Rosalia</p>
+                        <p class="product-card-price">$950.00 MXN</p>
+                    </div>
+                    <button class="btn btn-primary btn-small btn-add-to-cart" onclick="addToCart('v025', 'El Mal Querer', 950.00, 'generos/rosalia_v.png', 'Rosalia', 'Vinilo')">
+                        Añadir al Carrito
+                    </button>
+                    <audio id="rosalia-audio" src="generos/music/rosalia.mp3" style="display: none;"></audio>
+                </div>
+
+                
+                <div class="product-card" data-category="cds" data-genre="latina">
+                    <img 
+                        src="generos/rosalia_cd.png" 
+                        alt="CD: Rosalia" 
+                        class="product-card-img audio-trigger" 
+                        data-audio-id="rosalia-audio"
+                        >
+                    <div class="product-info-block">
+                        <h4 class="album-name">El Mal Querer</h4>
+                        <p class="artist-name">Rosalia</p>
+                        <p class="product-card-price">$450.00 MXN</p>
+                    </div>
+                    <button class="btn btn-primary btn-small btn-add-to-cart" onclick="addToCart('c025', 'El Mal Querer', 450.00, 'generos/rosalia_cd.png', 'Rosalia', 'CD')">
+                        Añadir al Carrito
+                    </button>
+                    <audio id="rosalia-audio" src="generos/music/rosalia.mp3" style="display: none;"></audio>
+                </div>
+
+                --------------------
+
+                <div class="product-card" data-category="vinilos" data-genre="kpop">
+                    <img 
+                        src="generos/bts_v.png" 
+                        alt="Vinilo: BTS" 
+                        class="product-card-img audio-trigger" 
+                        data-audio-id="bts-audio"
+                        >
+                    <div class="product-info-block">
+                        <h4 class="album-name">Butter</h4>
+                        <p class="artist-name">BTS</p>
+                        <p class="product-card-price">$950.00 MXN</p>
+                    </div>
+                    <button class="btn btn-primary btn-small btn-add-to-cart" onclick="addToCart('v026', 'Butter', 950.00, 'generos/bts_v.png', 'BTS', 'Vinilo')">
+                        Añadir al Carrito
+                    </button>
+                    <audio id="bts-audio" src="generos/music/bts.mp3" style="display: none;"></audio>
+                </div>
+
+                <div class="product-card" data-category="cds" data-genre="kpop">
+                    <img 
+                        src="generos/bts_cd.png" 
+                        alt="CD: BTS" 
+                        class="product-card-img audio-trigger" 
+                        data-audio-id="bts-audio"
+                        >
+                    <div class="product-info-block">
+                        <h4 class="album-name">Butter</h4>
+                        <p class="artist-name">BTS</p>
+                        <p class="product-card-price">$450.00 MXN</p>
+                    </div>
+                    <button class="btn btn-primary btn-small btn-add-to-cart" onclick="addToCart('c026', 'Butter', 450.00, 'generos/bts_cd.png', 'BTS', 'CD')">
+                        Añadir al Carrito
+                    </button>
+                    <audio id="bts-audio" src="generos/music/bts.mp3" style="display: none;"></audio>
+                </div>
+
+                 --------------------
+
+                <div class="product-card" data-category="vinilos" data-genre="kpop">
+                    <img 
+                        src="generos/pink_v.png" 
+                        alt="Vinilo: Blackpink" 
+                        class="product-card-img audio-trigger" 
+                        data-audio-id="black-audio"
+                        >
+                    <div class="product-info-block">
+                        <h4 class="album-name">The Album </h4>
+                        <p class="artist-name">Blackpink</p>
+                        <p class="product-card-price">$950.00 MXN</p>
+                    </div>
+                    <button class="btn btn-primary btn-small btn-add-to-cart" onclick="addToCart('v027', 'The Album ', 950.00, 'generos/pink_v.png', 'Blackpink', 'Vinilo')">
+                        Añadir al Carrito
+                    </button>
+                    <audio id="black-audio" src="generos/music/pink.mp3" style="display: none;"></audio>
+                </div>
+
+                <div class="product-card" data-category="cds" data-genre="kpop">
+                    <img 
+                        src="generos/pink_cd.png" 
+                        alt="CD: Blackpink" 
+                        class="product-card-img audio-trigger" 
+                        data-audio-id="black-audio"
+                        >
+                    <div class="product-info-block">
+                        <h4 class="album-name">The Album </h4>
+                        <p class="artist-name">Blackpink</p>
+                        <p class="product-card-price">$450.00 MXN</p>
+                    </div>
+                    <button class="btn btn-primary btn-small btn-add-to-cart" onclick="addToCart('c027', 'The Album ', 450.00, 'generos/pink_cd.png', 'Blackpink', 'CD')">
+                        Añadir al Carrito
+                    </button>
+                    <audio id="black-audio" src="generos/music/pink.mp3" style="display: none;"></audio>
+                </div>
+
+
+        </div> 
+    </section>
+</main>
+
+
+    <div id="chatbot-wrapper">
+    </div>
+
+    <footer class="main-footer">
+        <div class="container footer-content"> 
+            
+            <div class="footer-section">
+                <h4>Contacto</h4>
+                <p>Estamos aquí para ayudarte con cualquier consulta.</p>
+                <p>Email: <strong>vbofic@example.com</strong></p> 
+            </div>
+
+            <div class="footer-section">
+                <h4>Ubicación</h4>
+                <p>Dirección: Calle Falsa 123, Ciudad de México</p>
+                <p>Horario: <strong>Lunes a Sábado, 10:00 - 20:00</strong></p>
+            </div>
+
+            <div class="footer-section social-links-section">
+                <h4>Síguenos</h4>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/share/1CzVSKmWR5/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://x.com/VintageBeats_?t=YVcwY0N8XeeUQeKYeDXBhQ&s=08" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/vintagebts?igsh=MXZwMWFzcHllOTExZA==" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@vintage_beatss" target="_blank" aria-label="Tiktok"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://wa.me/5215586974840" target="_blank" aria-label="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            &copy; 2025 V-Beats. Todos los derechos reservados.
+        </div>
+    </footer>
+    
+    <script>
+        // ===============================================
+        // 🔑 1. LÓGICA DEL CARRITO DE COMPRAS
+        // ===============================================
+        
+        function getCartItems() {
+            const cart = sessionStorage.getItem('vintageBeatsCart');
+            return cart ? JSON.parse(cart) : [];
+        }
+
+        function saveCartItems(items) {
+            sessionStorage.setItem('vintageBeatsCart', JSON.stringify(items));
+            updateCartCount(); 
+        }
+
+        function updateCartCount() {
+            const cartItems = getCartItems();
+            const count = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+            const cartCountElement = document.getElementById('cart-count');
+            if (cartCountElement) {
+                cartCountElement.textContent = count;
+                cartCountElement.style.display = count > 0 ? 'inline-block' : 'none';
+            }
+        }
+
+        function addToCart(id, name, price, image, artist, type) {
+            const cartItems = getCartItems();
+            const existingItem = cartItems.find(item => item.id === id);
+
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cartItems.push({
+                    id: id,
+                    name: name,
+                    price: price,
+                    image: image,
+                    artist: artist,
+                    type: type,
+                    quantity: 1
+                });
+            }
+
+            saveCartItems(cartItems);
+            alert(`"${name}" añadido al carrito! Total de artículos: ${cartItems.reduce((sum, item) => sum + item.quantity, 0)}`);
+        }
+
+
+        // ===============================================
+        // 🔑 2. LÓGICA DE AUDIO
+        // ===============================================
+        
+        let currentlyPlayingAudio = null; 
+
+        function toggleAudio(audioElement) {
+            if (currentlyPlayingAudio && currentlyPlayingAudio !== audioElement) {
+                currentlyPlayingAudio.pause(); 
+                currentlyPlayingAudio.currentTime = 0; 
+            }
+
+            if (audioElement.paused) {
+                audioElement.play().catch(error => {
+                    console.error("Error al intentar reproducir el audio:", error);
+                    alert('El navegador ha bloqueado la reproducción automática. Inténtalo de nuevo.');
+                });
+                currentlyPlayingAudio = audioElement; 
+            } else {
+                audioElement.pause(); 
+                audioElement.currentTime = 0; 
+                currentlyPlayingAudio = null; 
+            }
+        }
+
+        // ===============================================
+        // 🔑 3. LÓGICA DE FILTRADO (COMBINADO: Categoría Y Género)
+        // ===============================================
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            updateCartCount(); 
+
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            // Nota: productCards se define MÁS ABAJO después de la mezcla
+            const audioTriggers = document.querySelectorAll('.product-card-img.audio-trigger');
+            
+            const dropdownToggle = document.getElementById('genre-dropdown-btn');
+            const dropdownMenu = document.getElementById('genre-dropdown-menu');
+
+            // ESTADOS GLOBALES DE FILTRO
+            let currentCategory = 'all'; 
+            let currentGenre = null;     
+
+            const genres = ['pop', 'rock', 'electronica', 'latina', 'kpop', 'rap'];
+            const categories = ['all', 'vinilos', 'cds', 'reproductores'];
+
+            // 🔑 4. FUNCIÓN PARA MEZCLAR PRODUCTOS (Fisher-Yates)
+            function shuffleArray(array) {
+                let currentIndex = array.length, randomIndex;
+
+                while (currentIndex != 0) {
+                    randomIndex = Math.floor(Math.random() * currentIndex);
+                    currentIndex--;
+
+                    [array[currentIndex], array[randomIndex]] = [
+                        array[randomIndex], array[currentIndex]];
+                }
+                return array;
+            }
+
+            // 🔑 APLICAR MEZCLA AL CARGAR LA PÁGINA
+            const productContainer = document.getElementById('product-list-container');
+            let productCardsArray = Array.from(productContainer.children); // Obtener hijos (productos)
+
+            productCardsArray = shuffleArray(productCardsArray);
+
+            // Reinsertar los productos en el orden mezclado
+            productContainer.innerHTML = ''; // Limpiar el contenedor
+            productCardsArray.forEach(card => {
+                productContainer.appendChild(card);
+            });
+            
+            // Re-seleccionar los productos después de la mezcla para que el filtro funcione
+            const productCards = document.querySelectorAll('#product-list-container .product-card');
+
+
+            // Función auxiliar para actualizar los productos según los filtros actuales
+            function updateProductDisplay() {
+                productCards.forEach(card => {
+                    const cardCategory = card.getAttribute('data-category');
+                    const cardGenre = card.getAttribute('data-genre');
+                    
+                    let matchesCategory = false;
+                    let matchesGenre = false;
+                    
+                    // Lógica de Categoría
+                    if (currentCategory === 'all') {
+                        matchesCategory = true;
+                    } else {
+                        matchesCategory = (currentCategory === cardCategory);
+                    }
+                    
+                    // Lógica de Género (null = no hay filtro de género, por lo que coincide)
+                    if (currentGenre === null) {
+                        matchesGenre = true; 
+                    } else {
+                        matchesGenre = (currentGenre === cardGenre);
+                    }
+
+                    // REGLA CLAVE: Mostrar si COINCIDE CON LA CATEGORÍA Y COINCIDE CON EL GÉNERO
+                    const shouldDisplay = matchesCategory && matchesGenre;
+                    
+                    card.style.display = shouldDisplay ? 'block' : 'none';
+                });
+            }
+
+
+            // Lógica para el Dropdown (Mostrar/Ocultar el menú)
+            dropdownToggle.addEventListener('click', (e) => {
+                e.stopPropagation(); 
+                dropdownMenu.classList.toggle('show');
+            });
+            
+            // Ocultar el dropdown si se hace clic fuera de él
+            window.addEventListener('click', (event) => {
+                if (!dropdownToggle.contains(event.target) && !dropdownMenu.contains(event.target)) {
+                    dropdownMenu.classList.remove('show');
+                }
+            });
+
+
+            // Lógica de Manejo de Clics en Filtros
+            filterButtons.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    // Ignorar botones de navegación
+                    if (button.tagName === 'A' || button.classList.contains('dropdown-toggle')) return; 
+                    
+                    const filterValue = button.getAttribute('data-filter');
+                    const isGenreFilter = genres.includes(filterValue);
+                    const isCategoryFilter = categories.includes(filterValue);
+
+                    // 1. ACTUALIZAR LOS ESTADOS DE FILTRO
+                    
+                    if (isCategoryFilter) {
+                        // Es un filtro de Categoría (Vinilos, CDs, Reproductores, Todos)
+                        
+                        // Si se hace clic en 'Todos los Productos', reseteamos AMBOS filtros
+                        if (filterValue === 'all') {
+                            currentCategory = 'all';
+                            currentGenre = null; 
+                        } 
+                        // Si se hace clic en la categoría activa (e.g., Vinilos), la desactiva y vuelve a 'all'
+                        else if (currentCategory === filterValue) {
+                             currentCategory = 'all';
+                             currentGenre = null; 
+                        } 
+                        // Si se selecciona una nueva categoría
+                        else {
+                             currentCategory = filterValue;
+                             // Si elige 'Reproductores', el género debe resetearse
+                             if (currentCategory === 'reproductores') {
+                                 currentGenre = null;
+                             }
+                        }
+                        
+                    } else if (isGenreFilter) {
+                        // Es un filtro de Género
+                        
+                        // Si se hace clic en el género activo, lo desactiva (deseleccionar)
+                        if (currentGenre === filterValue) {
+                            currentGenre = null;
+                        } else {
+                            currentGenre = filterValue;
+                        }
+
+                        // Si el género se selecciona y la categoría actual es 'Reproductores', cambiamos a 'all'
+                        if (currentGenre && currentCategory === 'reproductores') {
+                            currentCategory = 'all';
+                        }
+                    }
+
+                    // 2. ACTUALIZAR CLASES 'ACTIVE' (Feedback visual)
+                    
+                    // Resetear el estado de la Categoría Principal (Botones de Categoría)
+                    document.querySelectorAll('.filter-buttons .filter-btn').forEach(btn => {
+                        if (categories.includes(btn.getAttribute('data-filter'))) {
+                            btn.classList.remove('active');
+                        }
+                    });
+
+                    // Resetear el estado del Género (Toggle y botones internos)
+                    dropdownToggle.classList.remove('active');
+                    dropdownMenu.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+
+                    // Aplicar el estado 'active' a la Categoría seleccionada
+                    document.querySelector(`.filter-buttons .filter-btn[data-filter="${currentCategory}"]`).classList.add('active');
+
+                    // Aplicar el estado 'active' al Género seleccionado (y su Toggle principal)
+                    if (currentGenre) {
+                        dropdownToggle.classList.add('active');
+                        document.querySelector(`.dropdown-menu .filter-btn[data-filter="${currentGenre}"]`).classList.add('active');
+                    }
+                    
+                    // Ocultar el dropdown si es un género lo que se ha seleccionado
+                    if (isGenreFilter) {
+                         dropdownMenu.classList.remove('show'); 
+                    }
+                    
+                    // 3. ACTUALIZAR PANTALLA
+                    updateProductDisplay();
+
+                });
+            });
+
+            // Inicializar la vista (aplicar el filtro 'all' y orden aleatorio)
+            updateProductDisplay();
+            
+            // Lógica de Audio (se asegura de que los triggers funcionen en los elementos mezclados)
+            document.querySelectorAll('.product-card-img.audio-trigger').forEach(trigger => {
+                trigger.addEventListener('click', () => {
+                    const audioId = trigger.getAttribute('data-audio-id');
+                    const audioElement = document.getElementById(audioId);
+                    
+                    if (audioElement) {
+                        toggleAudio(audioElement);
+                    }
+                });
+            });
+            
+            document.querySelectorAll('audio').forEach(audio => {
+                audio.addEventListener('ended', () => {
+                    audio.currentTime = 0;
+                    if (currentlyPlayingAudio === audio) {
+                        currentlyPlayingAudio = null;
+                    }
+                });
+            });
+        });
+    </script>
+    </body>
+</html>
